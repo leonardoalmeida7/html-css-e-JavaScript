@@ -49,15 +49,25 @@ h2 {
 }
 
 p {
-    font-size: 14px;
+    font-size: 16px;
+}
+li {
+    margin: 20px 0;
 }
 
-li {
+li a{
     background-color: var(--color0);
-    margin: 20px 0;
+    display: block;
     padding: 20px;
     font-weight: 700;
     border-radius: 10px;
+    text-decoration: none;
+    color: var(--color3);
+}
+
+li a:active {
+    background-color: var(--color4);
+    color: var(--color2);
 }
 
 footer {
