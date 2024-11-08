@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Young+Serif&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --font0: "Outfit", serif;
+    --font1: "Young Serif", serif;
+    --color0: hsl(0, 0%, 100%);
+    --color1: hsl(30, 54%, 90%);
+    --color2: hsl(30, 18%, 87%);
+    --color3: hsl(30, 10%, 34%);
+    --color4: hsl(24, 5%, 18%);
+    --color5: hsl(14, 45%, 36%);
+    --color6: hsl(332, 51%, 32%);
+    --color7: hsl(330, 100%, 98%);
+}
+
+body {
+    background-color: var(--color1);
+    font-family: var(--font0);
+    font-size: 16px;
+    color: var(--color3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    box-sizing: border-box;
+    max-width: 620px;
+    width: 100%;
+    background-color:white;
+    border-radius: 20px;
+}
+
+section {
+    border-bottom: 1px solid var(--color2);
+    padding-bottom: 25px;
+}
+
+#header, 
+#preparation, 
+#table {
+    border: none;
+}
+
+img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+#header-text, 
+#preparation, 
+#ingredients, 
+#instructions,
+#nutrition{
+    margin: 0 30px;
+}
+
+#preparation {
+    background-color: var(--color7);
+    padding: 20px 30px;
+    border-radius: 10px;
+}
+
+#preparation h2 {
+    font-family: var(--font0);
+    color: var(--color6);
+    font-size: 18px;
+    margin: 0;
+}
+
+
+h1 {
+    color: var(--color4);
+    font-size: 2.2em;
+}
+
+h2 {
+    color: var(--color5);
+}
+
+h1, h2 {
+    font-family: var(--font1);
+    margin: 35px 0px 10px 0px;
+}
+
+ul, ol {
+    margin-left: 20px;
+    line-height: 30px;
+    text-indent: 10px;
+}
+
+li::marker {
+    color: var(--color5);
+    font-weight: bold;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    width: 325px;
+    border-bottom: 1px solid var(--color2);
+    padding: 20px;
+}
+
+td.values {
+    color: var(--color5);
+    font-weight: bolder;
+}
+
+footer {
+    padding: 12px;
+}
+
+.attribution {
+    font-size: 11px; 
+    text-align: center; 
+}
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+@media screen and (min-width: 620px) {
+    main {
+        margin: 100px 0px;
+    }
+    #header-img {
+        padding: 25px;
+    }
+}
