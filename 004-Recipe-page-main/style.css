@@ -58,7 +58,7 @@ img {
 #ingredients, 
 #instructions,
 #nutrition{
-    margin: 0 30px;
+    margin: 0 35px;
 }
 
 #preparation {
@@ -86,6 +86,7 @@ h2 {
 
 h1, h2 {
     font-family: var(--font1);
+    font-weight: 500;
     margin: 35px 0px 10px 0px;
 }
 
@@ -129,9 +130,9 @@ footer {
 
 @media screen and (min-width: 620px) {
     main {
-        margin: 80px 0px;
+        margin: 100px 0px;
     }
     #header-img {
-        padding: 25px;
+        padding: 32px;
     }
 }
