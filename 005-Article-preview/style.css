@@ -66,16 +66,17 @@ section {
 
 .profile {
     margin-top: 35px;
+    font-size: 0.8em;
 }
 
 #picture {
     float: left;
-    margin-right: 20px;
+    margin-right: 10px;
     margin-bottom: 20px;
 }
 
 #picture img{
-    width: 60px;
+    width: 50px;
     border-radius: 50%;
 }
 
@@ -163,7 +164,7 @@ footer {
     main {
         position: relative;
         max-width: 900px;
-        height: 360px;
+        height: 380px;
         border-radius: 20px;
     }
 
@@ -180,6 +181,10 @@ footer {
         float: right;
         width: 60%;
         padding: 25px;
+    }
+
+    .profile{
+        font-size: 1em;
     }
 
     .share {
