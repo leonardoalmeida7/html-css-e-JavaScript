@@ -26,9 +26,10 @@ body {
 }
 
 main {
-    width: 85%;
+    width: 90%;
+
     max-width: 500px;
-    margin-top: 100px;
+    margin-top: 60px;
     background-color: var(--color4);
     border-radius: 20px;
     box-shadow: 5px 5px 20px var(--color2);
@@ -37,7 +38,7 @@ main {
 
 
 #img-drawers {
-    height: 300px;
+    height: 250px;
     background-image: url(images/drawers.jpg);
     background-repeat: no-repeat;
     background-position: center center;
@@ -56,19 +57,21 @@ p {
 
 section {
     position: relative;
-    padding: 30px 40px 0 40px;
+    padding: 20px 30px 0 40px;
     font-size: 15px;
+    margin-bottom: 30px;
 }
 
 /* Profile */
 
-#profile {
+.profile {
     margin-top: 35px;
 }
 
 #picture {
     float: left;
     margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 #picture img{
@@ -81,10 +84,10 @@ section {
     padding: 5px;
 }
 
-#profile .icon-share {
+.profile .icon-share {
     float: right;
     font-size: 1.3em;
-    margin: 20px;
+    margin: 10px 10% 0 0;
     background-color: var(--color3);
     border-radius: 50%;
     padding: 10px;
@@ -107,9 +110,7 @@ svg, span {
     color: var(--color2);
     width: 100%;
     padding: 27px;
-    position: absolute;
-    top: 85%;
-    left: 0;
+
     letter-spacing: 0.6em;
     display: none;
 }
@@ -134,6 +135,10 @@ svg, span {
     align-items: center;
 }
 
+.hidden {
+    display: none;
+}
+
 
 /* Footer */
 
@@ -149,11 +154,6 @@ footer {
     color: hsl(228, 45%, 44%); 
 }
 
-@media screen and (min-width: 550px){
-    .share {
-        top: 82%;
-    }
-}
 
 @media screen and (min-width: 900px){
     body {
@@ -161,6 +161,7 @@ footer {
     }
 
     main {
+        position: relative;
         max-width: 900px;
         height: 360px;
         border-radius: 20px;
@@ -182,8 +183,9 @@ footer {
     }
 
     .share {
-        top: 55%;
-        left: 65%;
+        position: relative;
+        top: -40%;
+        left: 75%;
         width: 250px;
         padding: 10px;
         border-radius: 10px;
@@ -195,7 +197,7 @@ footer {
 
     #arrow {
         position: absolute;
-        top: 80%;
+        top: 76%;
         width: 20px;
         height: 20px;
         background-color: var(--color0);
@@ -205,5 +207,9 @@ footer {
     footer {
         position: absolute;
         bottom: 0;
+    }
+
+    .hidden {
+        display: block;
     }
 }
