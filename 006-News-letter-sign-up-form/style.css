@@ -112,14 +112,14 @@ footer {
     color: #f87d79;
 }
 
-@media screen and (min-width: 830px){
+@media screen and (min-width: 750px){
     body {
         position: relative;
     }
     main {
         max-width: 850px;
         width: 95%;
-        height: 550px;
+        height: 510px;
         border-radius: 30px;
         padding: 20px;
         position: absolute;

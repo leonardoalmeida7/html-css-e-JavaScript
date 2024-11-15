@@ -7,7 +7,7 @@ button.addEventListener("click", function(){
         input_email.style.backgroundColor = "#8ef87959"
         input_email.style.borderColor = "#8ef879"
         setTimeout(() => {
-            window.location.href = "/success_page.html"
+            window.location.href = "success_page.html?" + input_email.value
         }, 1500)
     }else {
         input_email.style.backgroundColor = "#f87d796b"
