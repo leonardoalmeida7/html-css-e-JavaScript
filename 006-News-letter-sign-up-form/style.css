@@ -23,6 +23,7 @@ body {
 }
 
 main {
+    height: 100dvh;
     width: 100%;
     max-width: 600px;
     margin: auto;
@@ -32,10 +33,12 @@ main {
 
 #img_illustration {
     background-image: url(assets/images/illustration-sign-up-mobile.svg);
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    border-radius: 0 0 30px 30px;
     height: 35dvh;
+    width: 100%;
 }
 
 h1 {
@@ -82,7 +85,7 @@ button{
     background-color: var(--DarkSlateGrey);
     color: var(--White);
     margin-top: 25px;
-    margin-bottom: 75px;
+    margin-bottom: 30px;
 }
 
 button:active {
