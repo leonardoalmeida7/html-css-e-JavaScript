@@ -15,7 +15,7 @@
 }
 
 body {
-    min-height: 100vh;
+    min-height: 100dvh;
     font-family: var(--Family);
     color: var(--DarkSlateGrey);
     line-height: 1.5em;
@@ -35,13 +35,13 @@ main {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
-    height: 40vh;
-    padding: 0px 25px;
+    height: 35dvh;
 }
 
 h1 {
     font-size: 3em;
     margin: 20px 0;
+    line-height: 1em;
 }
 
 p {
