@@ -122,7 +122,7 @@ footer {
     main {
         max-width: 850px;
         width: 95%;
-        height: 510px;
+        min-height: 510px;
         border-radius: 30px;
         padding: 20px;
         position: absolute;
@@ -134,9 +134,9 @@ footer {
         background-image: url(assets/images/illustration-sign-up-desktop.svg);
         border-radius: 20px;
         float: right;
-        width: 40%;
-        height: 100%;
-        padding: 0;
+        width: 45%;
+        height: 540px;
+
     }
 
     img {
@@ -145,7 +145,7 @@ footer {
     
     section {
         float: left;
-        width: 50%;
+        width: 45%;
     }
 
     footer {
