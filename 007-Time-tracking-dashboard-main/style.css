@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* font */
+    --fontPrimary:  "Manrope", serif;
+
+    /* Colors primary */
+    --Blue: hsl(246, 80%, 60%);
+    --White:  hsl(0, 0%, 100%);
+    --Lightred: hwb(15 40% 0%); /* work */
+    --Softblue: hsl(195, 74%, 62%); /* play */
+    --Lightred2: hsl(348, 100%, 68%); /* study */
+    --Limegreen: hsl(145, 58%, 55%); /* exercise */
+    --Violet: hsl(264, 64%, 52%); /* social */
+    --Softorange: hsl(43, 84%, 65%); /* self care */
+
+    /* Neutral */
+
+    --Verydarkblue: hsl(226, 43%, 10%);
+    --Darkblue: hsl(235, 46%, 20%);
+    --Desaturatedblue: hsl(235, 45%, 61%);
+    --PaleBlue: hsl(236, 100%, 87%);
+
+}
+
+body {
+    min-height: 100dvh;
+    font-family: var(--fontPrimary);
+    background-color: var(--Verydarkblue);
+    color: var(--PaleBlue);
+    letter-spacing: 0.1em;
+    position: relative;
+}
+
+main {
+    display: grid;
+    grid-template-rows: 15% repeat(7, 10%);
+    grid-template-columns: 5% 90% 5%;
+    row-gap: 55px;
+    margin-top: 70px;
+}
+
+section, header {
+    background-color: var(--Darkblue);
+    border-radius: 20px;
+    grid-column: 2;
+}
+
+/* profile header */
+header {
+    grid-row: 1;
+}
+
+.profile {
+    background-color: var(--Blue);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 68%;
+    font-weight: lighter;
+}
+
+.profile img{
+    width: 80px;
+    border: 2px solid var(--White);
+    border-radius: 50%;
+}
+
+#name {
+    font-size: 6.5vw;
+    color: var(--White);
+}
+
+#info_profile {
+    margin-left: 20px;
+}
+
+.options {
+    height: 30%;
+}
+
+.options ul{
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.options li:hover{
+    color: var(--White);
+}
+
+/* tasks */
+section {
+    height: 200px;
+}
+
+.tasks_info {
+    box-sizing: border-box;
+    background-color: var(--Darkblue);
+    border-radius: 20px;
+    padding: 20px;
+    height: 156px;
+}
+
+#img_work, #img_play, #img_study, #img_exercise, #img_social, #img_self {
+    height: 45px;
+    margin-right: 20px;
+}
+
+#img_work {
+    background: url(images/icon-work.svg) no-repeat right top;
+}
+#img_play {
+    background: url(images/icon-play.svg) no-repeat right top;
+}
+#img_study {
+    background: url(images/icon-study.svg) no-repeat right top;
+}
+#img_exercise {
+    background: url(images/icon-exercise.svg) no-repeat right top;
+}
+#img_social {
+    background: url(images/icon-social.svg) no-repeat right top;
+}
+#img_self {
+    background: url(images/icon-self-care.svg) no-repeat right top;
+}
+
+#work{
+    background-color: var(--Lightred);
+}
+#play{
+    background-color: var(--Softblue);
+}
+#study {
+    background-color: var(--Lightred2);
+}
+#exercise {
+    background-color: var(--Limegreen);
+}
+#social {
+    background-color: var(--Violet);
+}
+#self_care {
+    background-color: var(--Softorange);
+}
+
+.task {
+    margin-top: 30px;
+}
+
+.task, .daily, .weekly, .monthly {
+    display: flex;
+    justify-content: space-between;
+}
+
+.weekly {
+    display: none;
+}
+
+.monthly {
+    display: none;
+}
+
+span {
+    font-size: 1.5em;
+    transition: all 0.3s linear;
+}
+
+span:hover {
+    color: var(--White);
+}
+
+p {
+    line-height: 50px;
+}
+
+h4, .hrs {
+    color: var(--White);
+}
+
+.hrs {
+    font-size: 2em;
+    font-weight: lighter;
+}
+
+/* footer */
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+
+@media screen and (min-width: 800px){
+    main {
+        margin-top: 0;
+        min-height: 100vh;
+        grid-template-columns: 14% repeat(4, 16%) 14%;
+        grid-template-rows: repeat(4, 220px);
+        gap: 3% 1.5%;
+    }
+    
+    header {
+        grid-column: 2;
+        grid-row-start: 2;
+        grid-row-end: 4;
+    }
+
+    .profile {
+        flex-direction: column;
+        align-items: start;
+        padding-left: 20px;
+    }
+
+    #info_profile {
+        margin: 0;
+    }
+    
+    .options ul {
+        flex-direction: column;
+        align-items: start;
+        padding-left: 20px;
+    }
+
+    section {
+        height: 100%;
+    }
+
+    .tasks_info {
+        height: 85%;
+    }
+
+    .task {
+        margin: 0;
+    }
+
+    .task p {
+        line-height: 0;
+        margin-top: 10%;
+    }
+
+    .hrs {
+        font-size: 3vw;
+        margin-top: 5%;
+    }
+
+    .daily, .weekly, .monthly {
+        flex-direction: column;
+    }
+    #name {
+        font-size: 2.2vw;
+    }
+
+    #work {
+        grid-row: 2;
+    }
+
+    #play {
+        grid-row: 2;
+    }
+
+    #study {
+        grid-row: 2;
+    }
+
+    #exercise{
+        grid-row: 3;
+    }
+
+    #social {
+        grid-row: 3;
+    }
+
+    #self_care {
+        grid-row: 3;
+    }
+
+    #work, #exercise {
+        grid-column: 3;
+    }
+
+    #play, #social {
+        grid-column: 4;
+    }
+
+    #study, #self_care {
+        grid-column: 5;
+    }
+}

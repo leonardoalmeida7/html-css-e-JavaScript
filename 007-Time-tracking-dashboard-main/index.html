@@ -5,76 +5,181 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <script src="https://kit.fontawesome.com/a2606fc6ab.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
   <title>Frontend Mentor | Time tracking dashboard</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
 
-  Report for
-  Jeremy Robson
-
-  Daily
-  Weekly
-  Monthly
-
-  Work
-  5hrs <!-- daily -->
-  Previous - 7hrs <!-- daily -->
-  32hrs <!-- weekly -->
-  Previous - 36hrs <!-- weekly -->
-  103hrs <!-- monthly -->
-  Previous - 128hrs <!-- monthly -->
-
-  Play
-  1hr <!-- daily -->
-  Previous - 2hrs <!-- daily -->
-  10hrs <!-- weekly -->
-  Previous - 8hrs <!-- weekly -->
-  23hrs <!-- monthly -->
-  Previous - 29hrs <!-- monthly -->
-
-  Study
-  0hrs <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  4hrs <!-- weekly -->
-  Previous - 7hrs <!-- weekly -->
-  13hrs <!-- monthly -->
-  Previous - 19hrs <!-- monthly -->
-
-  Exercise
-  1hr <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  4hrs <!-- weekly -->
-  Previous - 5hrs <!-- weekly -->
-  11hrs <!-- monthly -->
-  Previous - 18hrs <!-- monthly -->
-
-  Social
-  1hr <!-- daily -->
-  Previous - 3hrs <!-- daily -->
-  5hrs <!-- weekly -->
-  Previous - 10hrs <!-- weekly -->
-  21hrs <!-- monthly -->
-  Previous - 23hrs <!-- monthly -->
-
-  Self Care
-  0hrs <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  2hrs <!-- weekly -->
-  Previous - 2hrs <!-- weekly -->
-  7hrs <!-- monthly -->
-  Previous - 11hrs <!-- monthly -->
-
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+  <main>
+    <header>
+      <div class="profile">
+        <div id="img_profile">
+          <img src="images/image-jeremy.png" alt="image_profile">
+        </div>
+        <div id="info_profile">
+          <p>Report for</p>
+          <p id="name">Jeremy Robson</p>
+        </div>
+      </div>
+      <div class="options">
+        <ul type="none">
+          <li>Daily</li>
+          <li>Weekly</li>
+          <li>Monthly</li>
+        </ul>
+      </div>
+    </header>
+    <section id="work">
+      <div id="img_work">
+      </div>
+      <div class="tasks_info">
+        <div class="task">
+          <h4>Work</h4>
+          <span>
+            <i class="fa-solid fa-ellipsis"></i>
+          </span>
+        </div>
+        <div class="daily">
+          <p class="hrs">5hrs</p> <!-- daily -->
+          <p class="prev_hrs">Previous - 7hrs</p> <!-- daily -->
+        </div>
+        <div class="weekly">
+          <p class="hrs">32hrs</p> <!-- weekly -->
+          <p class="prev_hrs">Previous - 36hrs</p> <!-- weekly -->
+        </div>
+        <div class="monthly">
+          <p class="hrs">103hrs</p> <!-- monthly -->
+          <p class="prev_hrs">Previous - 128hrs</p> <!-- monthly -->
+        </div>
+      </div>
+    </section>
+    <section id="play">
+      <div id="img_play">
+      </div>
+      <div class="tasks_info">
+        <div class="task">
+          <h4>Play</h4>
+          <span>
+            <i class="fa-solid fa-ellipsis"></i>
+          </span>
+        </div>
+        <div class="daily">
+          <p class="hrs">1hr</p> <!-- daily -->
+          <p class="prev_hrs">Previous - 2hrs</p> <!-- daily -->
+        </div>
+        <div class="weekly">
+          <p class="hrs">10hrs</p> <!-- weekly -->
+          <p class="prev_hrs">Previous - 8hrs</p> <!-- weekly -->
+        </div>
+        <div class="monthly">
+          <p class="hrs">23hrs</p> <!-- monthly -->
+          <p class="prev_hrs">Previous - 29hrs</p> <!-- monthly -->
+        </div>
+      </div>
+    </section>
+    <section  id="study">
+      <div id="img_study">
+      </div>
+      <div class="tasks_info">
+        <div class="task">
+          <h4>Study</h4>
+          <span>
+            <i class="fa-solid fa-ellipsis"></i>
+          </span>
+        </div>
+        <div class="daily">
+          <p class="hrs">0hrs</p> <!-- daily -->
+          <p class="prev_hrs">Previous - 1hr</p> <!-- daily -->
+        </div>
+        <div class="weekly">
+          <p class="hrs">4hrs</p> <!-- weekly -->
+          <p class="prev_hrs">Previous - 7hrs</p> <!-- weekly -->
+        </div>
+        <div class="monthly">
+          <p class="hrs">13hrs</p> <!-- monthly -->
+          <p class="prev_hrs">Previous - 19hrs</p> <!-- monthly -->
+        </div>
+      </div>
+    </section>
+    <section id="exercise">
+      <div id="img_exercise">
+      </div>
+      <div class="tasks_info">
+        <div class="task">
+          <h4>Exercise</h4>
+          <span>
+            <i class="fa-solid fa-ellipsis"></i>
+          </span>
+        </div>
+        <div class="daily">
+          <p class="hrs">1hr</p> <!-- daily -->
+          <p class="prev_hrs">Previous - 1hr</p> <!-- daily -->
+        </div>
+        <div class="weekly">
+          <p class="hrs">4hrs</p> <!-- weekly -->
+          <p class="prev_hrs">Previous - 5hrs</p> <!-- weekly -->
+        </div>
+        <div class="monthly">
+          <p class="hrs">11hrs</p> <!-- monthly -->
+          <p class="prev_hrs">Previous - 18hrs</p> <!-- monthly -->
+        </div>
+      </div>
+    </section>
+    <section id="social">
+      <div id="img_social">
+      </div>
+      <div class="tasks_info">
+        <div class="task">
+          <h4>Social</h4>
+          <span>
+            <i class="fa-solid fa-ellipsis"></i>
+          </span>
+        </div>
+        <div class="daily">
+          <p class="hrs">1hr</p> <!-- daily -->
+          <p class="prev_hrs">Previous - 3hrs</p> <!-- daily -->
+        </div>
+        <div class="weekly">
+          <p class="hrs">5hrs</p> <!-- weekly -->
+          <p class="prev_hrs">Previous - 10hrs</p> <!-- weekly -->
+        </div>
+        <div class="monthly">
+          <p class="hrs">21hrs</p> <!-- monthly -->
+          <p class="prev_hrs">Previous - 23hrs</p>  <!-- monthly -->
+        </div>
+      </div>
+    </section>
+    <section id="self_care">
+      <div id="img_self">
+      </div>
+      <div class="tasks_info">
+        <div class="task">
+          <h4>Self Care</h4>
+          <span>
+            <i class="fa-solid fa-ellipsis"></i>
+          </span>
+        </div>
+        <div class="daily">
+          <p class="hrs">0hrs</p> <!-- daily -->
+          <p class="prev_hrs">Previous - 1hr </p> <!-- daily -->
+        </div>
+        <div class="weekly">
+          <p class="hrs">2hrs</p> <!-- weekly -->
+          <p class="prev_hrs">Previous - 2hrs</p>  <!-- weekly -->
+        </div>
+        <div class="monthly">
+          <p class="hrs">7hrs</p> <!-- monthly -->
+          <p class="prev_hrs">Previous - 11hrs</p>  <!-- monthly -->
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </footer>
 </body>
 </html>
