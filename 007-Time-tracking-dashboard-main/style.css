@@ -92,6 +92,11 @@ header {
     align-items: center;
 }
 
+li {
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+
 .options li:hover{
     color: var(--White);
 }
@@ -107,6 +112,7 @@ section {
     border-radius: 20px;
     padding: 20px;
     height: 156px;
+    transition: all 0.3s linear;
 }
 
 .tasks_info:hover {
@@ -166,13 +172,6 @@ section {
     justify-content: space-between;
 }
 
-.weekly {
-    display: none;
-}
-
-.monthly {
-    display: none;
-}
 
 span {
     font-size: 1.5em;
@@ -194,6 +193,16 @@ h4, .hrs {
 .hrs {
     font-size: 2em;
     font-weight: lighter;
+}
+
+/* js */
+
+.active {
+    color: white;
+}
+
+.hidden {
+    display: none;
 }
 
 /* footer */
@@ -237,7 +246,7 @@ footer{
     .options ul {
         flex-direction: column;
         align-items: start;
-        padding-left: 20px;
+        padding-left: 30px;
     }
 
     section {
