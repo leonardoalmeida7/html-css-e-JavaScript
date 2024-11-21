@@ -164,7 +164,7 @@ section {
 }
 
 .task {
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .task, .daily, .weekly, .monthly {
@@ -183,7 +183,7 @@ span:hover {
 }
 
 p {
-    line-height: 50px;
+    line-height: 60px;
 }
 
 h4, .hrs {
@@ -191,8 +191,13 @@ h4, .hrs {
 }
 
 .hrs {
+    display: inline-block;
     font-size: 2em;
     font-weight: lighter;
+}
+
+.prev_hrs {
+    float: right;
 }
 
 /* js */
@@ -222,7 +227,7 @@ footer{
         margin-top: 0;
         min-height: 100vh;
         grid-template-columns: 14% repeat(4, 16%) 14%;
-        grid-template-rows:  200px repeat(2, 280px) 100px;
+        grid-template-rows:  200px repeat(2, 240px) 100px;
         gap: 3% 1.5%;
     }
     
@@ -269,6 +274,9 @@ footer{
     .hrs {
         font-size: 3vw;
         margin-top: 5%;
+    }
+    .prev_hrs {
+        float: none;
     }
 
     .daily, .weekly, .monthly {
