@@ -92,6 +92,10 @@ header {
     align-items: center;
 }
 
+ul {
+    list-style-type: none;
+}
+
 li {
     cursor: pointer;
     transition: all 0.3s linear;
