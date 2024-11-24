@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+body {
+    min-height: 100vh;
+    background-color: #666666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    border: 5px solid white;
+    border-radius: 10px;
+    color: white;
+    padding: 20px 50px;
+    letter-spacing: 0.2rem;
+}
+
+span {
+    text-align: center;
+    font-size: 6rem;
+}
+
+span::after {
+    content: ":";
+
+}
+
+span#sec::after {
+    content: none;
+}
