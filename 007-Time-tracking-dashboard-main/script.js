@@ -5,6 +5,8 @@ let daily_info = document.querySelectorAll('.daily')
 let weekly_info = document.querySelectorAll('.weekly')
 let monthly_info = document.querySelectorAll('.monthly')
 
+
+
 daily.classList = "active"
 weekly_info.forEach(info => {
     info.classList = "hidden"
@@ -13,21 +15,23 @@ monthly_info.forEach(info => {
     info.classList = "hidden"
 })
 
-daily.addEventListener("click", function(){
+function initial(){
     daily.classList = "active"
-    weekly.classList.remove("active")
-    monthly.classList.remove("active")
-    daily_info.forEach(info => {
-        info.classList.remove("hidden")
-    })
     weekly_info.forEach(info => {
         info.classList = "hidden"
     })
     monthly_info.forEach(info => {
         info.classList = "hidden"
     })
-    
-})
+    weekly.classList.remove("active")
+    monthly.classList.remove("active")
+    daily_info.forEach(info => {
+        info.classList.remove("hidden")
+    })
+}
+initial()
+
+daily.addEventListener("click", initial)
 
 weekly.addEventListener("click", function(){
     weekly.classList = "active"
