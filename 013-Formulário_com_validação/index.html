@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Formulário com Validação</title>
+</head>
+<body>
+    <main>
+        <h1>Formulário com Validação</h1>
+        <form>
+            <div class="name">
+                <label for="name">Nome:</label>
+                <input type="text" name="name" id="name" required placeholder="Seu nome...">
+                <div class="text_error"></div>
+            </div>
+            <div class="email">
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" id="email" placeholder="Ex: leonardo@gmail.com">
+                <div class="text_error"></div>
+            </div>
+            <div class="assunto">
+                <label for="assunto">Assunto:</label>
+                <input type="text" name="assunto" id="assunto">
+                <div class="text_error"></div>
+            </div>
+            <div class="message">
+                <label for="textArea">Mensagem:</label>
+                <textarea name="textArea" id="textArea" cols="30" rows="10"></textarea>
+                <div class="text_error"></div>
+            </div>
+            <div class="button">
+                <input type="submit" value="Enviar">
+            </div>
+        </form>
+    </main>
+</body>
+</html>
