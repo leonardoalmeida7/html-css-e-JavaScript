@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Rubik:ital,wght@0,300..900;1,300..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+:root {
+    /* Font */
+    --fontPrimary: "Space Mono", serif;
+    /* Colors */
+    --StrongCyan: hsl(172, 67%, 45%);
+    --VeryDarkCyan: hsl(183, 100%, 15%);
+    --DarkGrayishCyan: hsl(186, 14%, 43%);
+    --GrayishCyan: hsl(184, 14%, 56%);
+    --LightGrayishCyan: hsl(185, 41%, 84%);
+    --VeryLightGrayishCyan: hsl(189, 41%, 97%);
+    --White: hsl(0, 0%, 100%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: var(--fontPrimary);
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+body {
+    position: relative;
+    min-height: 100dvh;
+    background-color: var(--LightGrayishCyan);
+}
+
+.splitter {
+    color: var(--DarkGrayishCyan);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: .85rem;
+    letter-spacing: .5rem;
+    margin: 32px 0px;
+}
+
+main {
+    background-color: var(--White);
+    border-radius: 25px;
+    padding: 25px 30px;
+}
+
+main > div  {
+    margin: 20px 0px;
+}
+
+h3 {
+    color: var(--DarkGrayishCyan);
+}
+
+.value,
+.people {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: var(--VeryLightGrayishCyan);
+}
+
+.value,
+.people,
+.buttons {
+    margin-top: 15px;
+}
+
+input {
+    border: none;
+    width: 50%;
+    text-align: right;
+    font-size: 1.8rem;
+    font-weight: bold;
+    background-color: transparent;
+    color: var(--VeryDarkCyan);
+    outline: none;
+}
+
+.icons {
+    color: var(--GrayishCyan);
+    font-size: 1.35rem;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 45%);
+    gap: 20px;
+}
+
+button {
+    padding: 10px;
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: var(--White);
+    background-color: var(--VeryDarkCyan);
+    border-radius: 10px;
+    border: none;
+    transition: all .4s linear;
+}
+
+#custom {
+    background-color: var(--VeryLightGrayishCyan);
+    color: var(--DarkGrayishCyan);
+}
+
+button:hover, 
+#custom:hover {
+    background-color: var(--StrongCyan);
+    color: var(--VeryDarkCyan);
+}
+
+.reset {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--VeryDarkCyan);
+    border-radius: 15px;
+    margin: auto;
+    padding: 30px 25px;
+}
+
+.tip_amount,
+.total_person {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reset span {
+    color: var(--White);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+span.person {
+    color: var(--GrayishCyan);
+    font-size: .9rem;
+}
+
+span.reset_values {
+    font-size: 2.5rem;
+    color: var(--StrongCyan);
+}
+
+.reset button {
+    color: var(--VeryDarkCyan);
+    width: 100%;
+    background-color: var(--DarkGrayishCyan);
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    padding: 13px;
+}
+
+.attribution { 
+    font-size: 11px; text-align: center; 
+}
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+@media screen and (min-width: 820px){
+    .splitter {
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+    main {
+        display: flex;
+        max-width: 1100px;
+        margin: auto;
+        padding: 30px;
+        box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.11);
+    }
+    section {
+        flex-grow: 1;
+        padding: 0px 25px;
+        margin-right: 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    aside {
+        flex-grow: 3;
+    }
+
+    .reset {
+        height: 100%;
+        
+    }
+
+    .buttons {
+        grid-template-columns: repeat(3, 30%);
+    }
+
+    .tip_amount {
+        margin: 35px 0px;
+    }
+
+    .reset button {
+        margin-top: 28%;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        width: 100vw;
+    }
+}
