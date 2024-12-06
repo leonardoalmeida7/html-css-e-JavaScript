@@ -6,6 +6,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <script src="script.js" defer></script>
   <title>Frontend Mentor | Tip calculator app</title>
 </head>
 <body>
@@ -16,27 +17,29 @@
     <section>
       <div class="container_value">
         <h3>Bill</h3>
+        <p class="text_error hidden">Can't be zero</p>
         <div class="value">
           <span id="icon_dollar" class="icons"><i class="bi bi-currency-dollar"></i></span>
-          <input type="text" name="input_value" id="input_value" placeholder="0">
+          <input type="number" name="input_value" id="input_value" placeholder="0" autocomplete="off">
         </div>
       </div>
       <div class="select_tip">
         <h3>Select Tip %</h3>
         <div class="buttons">
-          <button type="button">5%</button>
-          <button type="button">10%</button>
-          <button type="button">15%</button>
-          <button type="button">25%</button>
-          <button type="button">50%</button>
+          <button type="button" value="5">5%</button>
+          <button type="button" value="10">10%</button>
+          <button type="button" value="15">15%</button>
+          <button type="button" value="25">25%</button>
+          <button type="button" value="50">50%</button>
           <button type="button" id="custom">Custom</button>
         </div>
       </div>
       <div class="container_people">
           <h3>Number of People</h3>
+          <p class="text_error hidden">Can't be zero</p>
           <div class="people">
             <span id="icon_person" class="icons"><i class="bi bi-person-fill"></i></span>
-            <input type="text" name="input_people" id="input_people" placeholder="0">
+            <input type="number" name="input_people" id="input_people" placeholder="0" autocomplete="off">
           </div>
       </div>
     </section>

@@ -50,6 +50,8 @@ main > div  {
 
 h3 {
     color: var(--DarkGrayishCyan);
+    float: left;
+    font-size: 1.15rem;
 }
 
 .value,
@@ -62,10 +64,27 @@ h3 {
     background-color: var(--VeryLightGrayishCyan);
 }
 
+.error {
+    border: 3px solid rgba(255, 0, 0, 0.479);
+}
+
+
+.hidden {
+    display: none;
+}
+
+.text_error {
+    font-weight: bold;
+    color: rgba(255, 0, 0, 0.479);
+    float: right;
+}
+
 .value,
 .people,
 .buttons {
-    margin-top: 15px;
+    margin-bottom: 35px;
+    margin-top: 40px;
+    clear: both;
 }
 
 input {
@@ -78,6 +97,14 @@ input {
     color: var(--VeryDarkCyan);
     outline: none;
 }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
 
 .icons {
     color: var(--GrayishCyan);
@@ -108,6 +135,11 @@ button {
 
 button:hover, 
 #custom:hover {
+    background-color: var(--StrongCyan);
+    color: var(--VeryDarkCyan);
+}
+
+.active {
     background-color: var(--StrongCyan);
     color: var(--VeryDarkCyan);
 }
