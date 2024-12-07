@@ -133,7 +133,7 @@ button {
     color: var(--DarkGrayishCyan);
 }
 
-button:hover, 
+button[type="button"]:hover, 
 #custom:hover {
     background-color: var(--StrongCyan);
     color: var(--VeryDarkCyan);
@@ -178,7 +178,7 @@ span.tip_amount_value {
     color: var(--StrongCyan);
 }
 
-.reset button {
+.reset_button {
     color: var(--VeryDarkCyan);
     width: 100%;
     background-color: var(--DarkGrayishCyan);
@@ -188,6 +188,16 @@ span.tip_amount_value {
     font-size: 1.5rem;
     text-transform: uppercase;
     padding: 13px;
+    margin-top: 10%;
+}
+
+#active_reset {
+    background-color: var(--StrongCyan);
+    color: var(--VeryDarkCyan);
+}
+
+#active_reset:hover {
+    background-color: var(--LightGrayishCyan);
 }
 
 .attribution { 
@@ -224,7 +234,6 @@ span.tip_amount_value {
 
     .reset {
         height: 100%;
-        
     }
 
     .buttons {
@@ -235,8 +244,8 @@ span.tip_amount_value {
         margin: 35px 0px;
     }
 
-    .reset button {
-        margin-top: 28%;
+    .reset_button {
+        margin-top: 34%;
     }
 
     footer {

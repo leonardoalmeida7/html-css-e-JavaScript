@@ -11,6 +11,11 @@ const totalPersonValue = document.querySelector(".total_person_value")
 
 const buttonReset = buttons[6]
 
+function reset(){
+    buttonReset.addEventListener("click", () => {
+        window.location.reload()
+    })
+}
 
 numberPeople.addEventListener("keyup", calculate)
 inputElement.addEventListener("keyup", calculate)
@@ -39,7 +44,10 @@ function getValueButton(){
 function calculate(){
     const inputElementValue = Number(inputElement.value)
     const numberPeopleValue = Number(numberPeople.value)
-
+    const tipAmount = ((inputElementValue / numberPeopleValue) * getValueButton()) / 100
+    const totalPerson = (inputElementValue / numberPeopleValue) + tipAmount
+    buttonReset.id = "active_reset"
+    
     function activeError(){
         const textError = document.querySelectorAll(".text_error")
     
@@ -65,13 +73,15 @@ function calculate(){
         }
     }
     activeError()
+    reset()
 
-    const tipAmount = ((inputElementValue / numberPeopleValue) * getValueButton()) / 100
-    const totalPerson = (inputElementValue / numberPeopleValue) + tipAmount
-
+    if(isNaN(tipAmount) === false && tipAmount != Infinity){
+        tipAmountValue.textContent = tipAmount.toFixed(2)
+    }
+    if(isNaN(totalPerson) === false && totalPerson != Infinity){
+        totalPersonValue.textContent = totalPerson.toFixed(2)
+    }
 
     console.log(tipAmount.toFixed(2))
-
-    tipAmountValue.textContent = tipAmount.toFixed(2)
-    totalPersonValue.textContent = totalPerson.toFixed(2)
 }
+
