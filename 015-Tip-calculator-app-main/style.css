@@ -12,6 +12,7 @@
     --LightGrayishCyan: hsl(185, 41%, 84%);
     --VeryLightGrayishCyan: hsl(189, 41%, 97%);
     --White: hsl(0, 0%, 100%);
+    --Disabled: #0D676D;
 }
 
 *{
@@ -189,7 +190,7 @@ span.tip_amount_value {
 .reset_button {
     color: var(--VeryDarkCyan);
     width: 100%;
-    background-color: var(--DarkGrayishCyan);
+    background-color: var(--Disabled);
     border: none;
     border-radius: 10px;
     font-weight: bold;
