@@ -130,11 +130,19 @@ button {
 
 #custom {
     background-color: var(--VeryLightGrayishCyan);
-    color: var(--DarkGrayishCyan);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    color: var(--VeryDarkCyan);
+    width: 100%;
+    padding-right: 10%;
+    transition: all 0.3s linear;
 }
 
-button[type="button"]:hover, 
 #custom:hover {
+    border: 2px solid var(--StrongCyan);
+}
+
+button[type="button"]:hover {
     background-color: var(--StrongCyan);
     color: var(--VeryDarkCyan);
 }
@@ -209,8 +217,7 @@ span.tip_amount_value {
 
 @media screen and (min-width: 820px){
     .splitter {
-        margin-top: 80px;
-        margin-bottom: 80px;
+        margin: 40px;
     }
     main {
         display: flex;

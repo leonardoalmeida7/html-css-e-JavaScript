@@ -1,7 +1,7 @@
 const inputElement = document.querySelector("#input_value")
 const buttons = document.querySelectorAll("button")
 const numberPeople = document.querySelector("#input_people")
-
+const buttonCustom = document.querySelector("#custom")
 
 const containerInputValue = document.querySelector(".value")
 const containerInputPeople = document.querySelector(".people")
@@ -9,16 +9,24 @@ const containerInputPeople = document.querySelector(".people")
 const tipAmountValue = document.querySelector(".tip_amount_value")
 const totalPersonValue = document.querySelector(".total_person_value")
 
-const buttonReset = buttons[6]
+const buttonReset = buttons[5]
 
-function reset(){
-    buttonReset.addEventListener("click", () => {
-        window.location.reload()
-    })
-}
+let buttonValue = 0
 
 numberPeople.addEventListener("keyup", calculate)
 inputElement.addEventListener("keyup", calculate)
+buttonCustom.addEventListener("click", () => {
+    buttons.forEach(button => {
+        button.classList.remove("active")
+    })
+    buttonCustom.style.borderColor = "#26c0ab"
+})
+buttonCustom.addEventListener("keyup", () => {
+    buttonValue = buttonCustom.value
+    calculate()
+    console.log(buttonValue)
+})
+console.log(buttonValue)
 
 function activeButton(){
     buttons.forEach(button => {
@@ -28,17 +36,20 @@ function activeButton(){
             })
             button.classList.add("active")
             calculate()
+            buttonCustom.style.borderColor = "transparent"
+            buttonCustom.value = ""
         })
     })
 }
-activeButton()
 
+activeButton()
 function getValueButton(){
     for(let i = 0; i < buttons.length; i++){
         if(buttons[i].className === "active"){
-            return Number(buttons[i].value)
+            buttonValue = Number(buttons[i].value)
         }
     }
+    return buttonValue
 }
 
 function calculate(){
@@ -84,4 +95,11 @@ function calculate(){
 
     console.log(tipAmount.toFixed(2))
 }
+
+function reset(){
+    buttonReset.addEventListener("click", () => {
+        window.location.reload()
+    })
+}
+
 
