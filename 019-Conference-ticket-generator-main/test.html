@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estilizar Input File</title>
+  <style>
+    input[type="file"]::file-selector-button {
+      /* Personalize o botão de seleção */
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type="file"]::file-selector-button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Remove o texto padrão */
+    input[type="file"] {
+      color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <input type="file" id="arquivo">
+  </form>
+</body>
+</html>

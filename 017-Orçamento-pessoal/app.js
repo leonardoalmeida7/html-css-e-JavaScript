@@ -38,6 +38,22 @@ class Bd {
         let id = this.getProximoId()
         localStorage.setItem(id, JSON.stringify(d))
         localStorage.setItem('id', id)
+
+    }
+
+    listaDespesa(){
+        let despesas = Array()
+        let id = localStorage.getItem('id')
+        for(let i = 1; i <= id; i++){
+            let despesa = JSON.parse(localStorage.getItem(i))
+
+            if(despesa == null){
+                continue
+            }
+
+            despesas.push(despesa)
+        }
+        return despesas
     }
 }
 
@@ -76,4 +92,38 @@ function cadastrarDespesa(){
         modalButton.className = "btn btn-danger"
         modalButton.innerHTML = "Voltar e corrigir"
     }
+}
+
+
+function carregaListaDespesas(){
+    let tbody = document.getElementById("lista-despesa")
+    let despesas = Array()
+    despesas = bd.listaDespesa()
+    despesas.forEach(d => {
+        let linha = tbody.insertRow()
+        linha.insertCell(0).innerHTML = `${d.dia}/${d.mes}/${d.ano}`
+        switch(parseInt(d.tipo)){
+            case 1:
+                d.tipo = 'Alimentação'
+                break;
+            case 2:
+                d.tipo = 'Educação'
+                break;
+            case 3:
+                d.tipo = 'Lazer'
+                break;
+            case 4:
+                d.tipo = 'Saúde'
+                break;
+            case 5:
+                d.tipo = 'Transporte'
+                break;
+        }
+        linha.insertCell(1).innerHTML = d.tipo
+        linha.insertCell(2).innerHTML = d.descricao
+        linha.insertCell(3).innerHTML = d.valor
+    });
+
+    
+    console.log(despesas)
 }
