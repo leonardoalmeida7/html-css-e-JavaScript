@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;   
+            padding: 0;
+        }
+        main {
+            width: 600px;
+            height: 110px;
+            margin: auto;
+            border: 1px solid black;
+            position: relative;
+            overflow: hidden;
+        }
+        ul {
+            transition: all .4s linear;
+            position: absolute;
+            left: 0;
+            display: flex;
+        }
+        li {
+            list-style-type: none;
+            margin-right: 10px;
+        }
+        div {
+            height: 100px;
+            width: 100px;
+            background-color: yellow;
+        }
+        button {
+            position: absolute;
+            right: 12%;
+            top: 5%;
+            font-size: 1.5rem;
+            width: 50px;
+        }
+    </style>
+
+</head>
+<body>
+    <main>
+        <ul>
+            <li>
+                <div>
+                    1
+                </div>
+            </li>
+            <li>
+                <div>
+                    2
+                </div>
+            </li>
+            <li>
+                <div>
+                    3
+                </div>
+            </li>
+            <li>
+                <div>
+                    4
+                </div>
+            </li>
+            <li>
+                <div>
+                    5
+                </div>
+            </li>
+            <li>
+                <div>
+                    6
+                </div>
+            </li>
+            <li>
+                <div>
+                    7
+                </div>
+            </li>
+        </ul>
+    </main>
+    <button type="button" id="botao">></button>
+    
+    <script>
+        let button = document.querySelector("#botao")
+        let ul = document.querySelector("ul")
+        let progresso = 0
+        button.addEventListener('click', function(){
+            progresso += -10
+            ul.style.left = progresso + "%"
+        })
+    </script>
+</body>
+</html>
