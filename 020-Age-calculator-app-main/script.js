@@ -4,6 +4,7 @@ const inputYear = document.getElementById("input_year")
 const inputs = document.querySelectorAll("input[type='number'")
 const labels = document.querySelectorAll("label")
 const textError = document.querySelectorAll(".text-error")
+const spans = document.querySelectorAll("span")
 
 const messageError = "Must be a valid date"
 const months31 = ["1", "3", '5', "7", "8", "10", "12"]
@@ -20,86 +21,55 @@ inputs.forEach(input => {
 })
 
 
-function calculate(){
 
-    if(inputMonth.value > 12 || inputMonth.value < 1){
+function validaDia(dia){
+    if(inputMonth.value < 1 || inputMonth.value > 12 ){
         checkError(1, true)
     }else {
         checkError(1, false)
-    }
-    validaData()
-    validaDia()
-}
-
-function validaDia(){
-    if(months31.includes(inputMonth.value)){
-        if(inputDay.value > 31 || errorDay()){
-            checkError(0, true)
+        if(inputMonth.value == 2) {
+            if(inputDay.value > dia ){
+                checkError(0, true)
+            }else {
+                checkError(0, false)
+            }
+        }else if(months31.includes(inputMonth.value)){
+            if(inputDay.value > 31 ){
+                checkError(0, true)
+            }else {
+                checkError(0, false)
+            }
         }else {
-            checkError(0, false)
+            if(inputDay.value > 30 ){
+                checkError(0, true)
+            }else {
+                checkError(0, false)
+            }
         }
-    }else {
-        if(inputDay.value > 30 || errorDay()){
-            checkError(0, true)
-        }else {
-            checkError(0, false)
-        }
+        
     }
+    
 }
 
 
 function validaData(){
-
+    
     if(inputYear.value.length === 4){
         checkError(2, false)
         /* Ano bissexto */
         if(Number(inputYear.value.slice(2, 4)) % 4 === 0 ){
             /* verificando o mês  */
-            if(inputMonth.value < 1 || inputMonth.value > 12 ){
-                checkError(1, true)
-            }else {
-                checkError(1, false)
-                if(inputMonth.value == 2) {
-                    if(inputDay.value > 29 || errorDay()){
-                        checkError(0, true)
-                    }else (
-                        checkError(1, false)
-                    )
-                }else {
-                    validaDia()
-                }
-            }
+            validaDia(29)
         }else {
-            if(inputMonth.value < 1 || inputMonth.value > 12 ){
-                checkError(1, true)
-            }else {
-                checkError(1, false)
-                if(inputMonth.value == 2) {
-                    if(inputDay.value > 28 || errorDay()){
-                        checkError(0, true)
-                    }else {
-                        checkError(0, false)
-                    }
-                }else {
-                    validaDia()
-                }
-            }
+            validaDia(28)
+            
         }
     }else {
         checkError(2, true)
     }
 
 }
-
-const errorDay = function(){
-    if(inputDay.value == 0 || inputDay.value.length === 0 || inputDay.value == ""){
-        return true
-    }
-    return false
-}
-
-
-
+       
 function checkError(x, error){
     if(error){
         textError[x].innerHTML = messageError
@@ -113,3 +83,16 @@ function checkError(x, error){
     }
 }
 
+
+function calculate(){
+    if(inputDay.value == 0 || inputDay.value.length === 0 || inputDay.value == "" || inputDay.value > 31){
+        checkError(0, true)
+    }else {
+        checkError(0, false)
+    }
+    validaDia()
+    validaData()
+
+    spans[0].innerHTML = inputYear.value
+
+}
