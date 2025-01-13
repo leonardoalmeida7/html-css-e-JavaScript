@@ -92,7 +92,10 @@ function calculate(){
     }
     validaDia()
     validaData()
-
-    spans[0].innerHTML = inputYear.value
+    let years = year - inputYear.value
+    let months = month - inputMonth.value
+    let days = day - inputDay.value
+    
+    
 
 }
