@@ -59,11 +59,63 @@ class Bd {
 			if(despesa === null) {
 				continue
 			}
-
+			despesa.id = i
 			despesas.push(despesa)
 		}
 
 		return despesas
+	}
+
+	pesquisar(despesa){
+
+		let despesasFiltradas = Array()
+		despesasFiltradas = this.recuperarTodosRegistros()
+		console.log(despesasFiltradas);
+		console.log(despesa)
+
+		//ano
+		if(despesa.ano != ''){
+			console.log("filtro de ano");
+			despesasFiltradas = despesasFiltradas.filter(d => d.ano == despesa.ano)
+		}
+			
+		//mes
+		if(despesa.mes != ''){
+			console.log("filtro de mes");
+			despesasFiltradas = despesasFiltradas.filter(d => d.mes == despesa.mes)
+		}
+
+		//dia
+		if(despesa.dia != ''){
+			console.log("filtro de dia");
+			despesasFiltradas = despesasFiltradas.filter(d => d.dia == despesa.dia)
+		}
+
+		//tipo
+		if(despesa.tipo != ''){
+			console.log("filtro de tipo");
+			despesasFiltradas = despesasFiltradas.filter(d => d.tipo == despesa.tipo)
+		}
+
+		//descricao
+		if(despesa.descricao != ''){
+			console.log("filtro de descricao");
+			despesasFiltradas = despesasFiltradas.filter(d => d.descricao == despesa.descricao)
+		}
+
+		//valor
+		if(despesa.valor != ''){
+			console.log("filtro de valor");
+			despesasFiltradas = despesasFiltradas.filter(d => d.valor == despesa.valor)
+		}
+
+		
+		return despesasFiltradas
+
+	}
+
+	remover(id){
+		localStorage.removeItem(id)
 	}
 }
 
@@ -90,7 +142,7 @@ function cadastrarDespesa() {
 
 
 	if(despesa.validarDados()) {
-		//bd.gravar(despesa)
+		bd.gravar(despesa)
 
 		document.getElementById('modal_titulo').innerHTML = 'Registro inserido com sucesso'
 		document.getElementById('modal_titulo_div').className = 'modal-header text-success'
@@ -100,6 +152,14 @@ function cadastrarDespesa() {
 
 		//dialog de sucesso
 		$('#modalRegistraDespesa').modal('show') 
+
+		ano.value = '' 
+		mes.value = ''
+		dia.value = ''
+		tipo.value = ''
+		descricao.value = ''
+		valor.value = ''
+		
 	} else {
 		
 		document.getElementById('modal_titulo').innerHTML = 'Erro na inclusão do registro'
@@ -113,11 +173,83 @@ function cadastrarDespesa() {
 	}
 }
 
-function carregaListaDespesas() {
+function carregaListaDespesas(despesas = Array(), filtro = false) {
 
-	let despesas = Array()
+    if(despesas.length == 0 && filtro == false){
+		despesas = bd.recuperarTodosRegistros() 
+	}
+	
 
-	despesas = bd.recuperarTodosRegistros() 
+	/*
 
-	console.log(despesas)
-}
+	<tr>
+		<td>15/03/2018</td>
+		<td>Alimentação</td>
+		<td>Compras do mês</td>
+		<td>444.75</td>
+	</tr>
+
+	*/
+
+	let listaDespesas = document.getElementById("listaDespesas")
+    listaDespesas.innerHTML = ''
+	despesas.forEach(function(d){
+
+		//Criando a linha (tr)
+		var linha = listaDespesas.insertRow();
+
+		//Criando as colunas (td)
+		linha.insertCell(0).innerHTML = `${d.dia}/${d.mes}/${d.ano}` 
+
+		//Ajustar o tipo
+		switch(d.tipo){
+			case '1': d.tipo = 'Alimentação'
+				break
+			case '2': d.tipo = 'Educação'
+				break
+			case '3': d.tipo = 'Lazer'
+				break
+			case '4': d.tipo = 'Saúde'
+				break
+			case '5': d.tipo = 'Transporte'
+				break
+			
+		}
+		linha.insertCell(1).innerHTML = d.tipo
+		linha.insertCell(2).innerHTML = d.descricao
+		linha.insertCell(3).innerHTML = d.valor
+
+		//Criar o botão de exclusão
+		let btn = document.createElement('button')
+		btn.className = 'btn btn-danger'
+		btn.innerHTML = '<i class="fa fa-times"  ></i>'
+		btn.id = `id_despesa_${d.id}`
+		btn.onclick = function(){
+			let id = this.id.replace('id_despesa_','')
+			//alert(id)
+			bd.remover(id)
+			window.location.reload()
+		}
+		linha.insertCell(4).append(btn)
+		console.log(d)
+	})
+
+ }
+
+ 
+ function pesquisarDespesa(){
+	 
+	let ano  = document.getElementById("ano").value
+	let mes = document.getElementById("mes").value
+	let dia = document.getElementById("dia").value
+	let tipo = document.getElementById("tipo").value
+	let descricao = document.getElementById("descricao").value
+	let valor = document.getElementById("valor").value
+
+	let despesa = new Despesa(ano, mes, dia, tipo, descricao, valor)
+
+	let despesas = bd.pesquisar(despesa)
+	 
+	this.carregaListaDespesas(despesas, true)
+
+ }
