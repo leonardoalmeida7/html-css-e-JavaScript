@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+:root {
+    /* Primary */
+    --Red: hsl(0, 78%, 62%);
+    --Cyan: hsl(180, 62%, 55%);
+    --Orange: hsl(34, 97%, 64%);
+    --Blue: hsl(212, 86%, 64%);
+
+    /* Neutral */
+    --VeryDarkBlue: hsl(234, 12%, 34%);
+    --GrayishBlue: hsl(229, 6%, 66%);
+    --VeryLightGray: hsl(0, 0%, 98%);
+}
+
+* {
+    font-family: "Poppins", serif;
+}
+
+
+h1, h2 {
+    color: var(--VeryDarkBlue);
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 1.3rem;
+    
+}
+
+span, p {
+    color: var(--GrayishBlue);
+}
+
+.card p {
+    font-size: .85rem;
+}
+
+.card {
+    box-shadow: 0px 10px 17px rgba(0, 0, 0, 0.11);
+    border: none;
+}
+
+#card1 {
+    border-top: 4px solid var(--Cyan);
+}
+
+
+#card2 {
+    border-top: 4px solid var(--Red);
+}
+
+
+#card3 {
+    border-top: 4px solid var(--Orange);
+}
+
+
+#card4 {
+    border-top: 4px solid var(--Blue);
+}
+
+
+
+
+
+/* Footer */
+@media screen and (min-width: 768px) {
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    
+}
+
+.attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
