@@ -2,4 +2,102 @@
 
 :root {
     --PrimaryFont: "DM Sans", serif;
+
+    /* Colors */
+
+        /* Neutral */
+    --Neutral900: #12131A;
+    --Neutral800: #21222C;
+    --Neutral700: #2A2B37;
+    --Neutral600: #404254;
+    --Neutral200: #E4E4EF;
+    --Neutral100: #F2F2F7;
+    --Neutral0: #FFFFFF;
+
+        /* Purple */
+    --Blue400: #D3A0FA;
+    --Blue500: #C27CF8;
+
+        /* Yellow */
+    --Yellow500: #FF9F00;
+
+        /* Orange */
+    --Orange500: #FE8159;
+    --Orange800: #DA3701;
+}
+
+* {
+    font-family: var(--PrimaryFont);
+}
+
+body {
+    background: url(images/bg-dark-theme.png), no-repeat, center center;
+    color: var(--Neutral0)
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 100%;
+    letter-spacing: -1px;
+}
+
+.button-moon {
+    background-color: var(--Neutral700);
+    border: none;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+textarea {
+    background-color: var(--Neutral700);
+    border-radius: 14px;
+    box-sizing: border-box;
+    padding: 16px;
+    width: 100%;
+    font-size: 1.25rem;
+}
+
+#letters-density > h3 {
+    font-size: 1.25rem;
+    line-height: 130%;
+    letter-spacing: -1px;
+    font-weight: 600;
+}
+
+
+
+.container-values {
+    color: var(--Neutral900);
+}
+
+.container-values span {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+#container-characters,
+#container-word,
+#container-sentence {
+    height: 150px;
+    background-repeat: no-repeat;
+    background-position: 125%;
+    background-size: 40%;
+    border-radius: 16px;
+    font-size: 1.25rem;
+}
+
+#container-characters{
+    background-color: var(--Blue400);
+    background-image: url(images/pattern-character-count.svg);
+}
+
+#container-word {
+    background-color: var(--Yellow500);
+    background-image: url(images/pattern-word-count.svg);
+}
+
+#container-sentence {
+    background-color: var(--Orange500);
+    background-image: url(images/pattern-sentence-count.svg);
 }
