@@ -1,42 +1,32 @@
 const iconButton = document.querySelector('.button-icon');
-const iconButtonSun = document.querySelector('#icon-sun');
-const iconButtonMoon = document.querySelector('#icon-moon');
 const textArea = document.querySelector('textarea');
-
 const logoAndIcon = document.querySelectorAll('img');
 
+let letters = [];
+let theme = 'dark';
 
-
-let theme = 'light'; 
-
-iconButton.addEventListener('click', ()=>{
-    if(theme == 'light'){
-        themeLight();
-        theme = 'dark';
-    }else {
-        themeDark();
+iconButton.addEventListener('click', () => {
+    if(theme == 'dark'){
+        document.documentElement.setAttribute('mode-light-dark', 'light');
         theme = 'light';
+    }else {
+        document.documentElement.setAttribute('mode-light-dark', 'dark');
+        theme = 'dark';
     }
     logoAndIcon.forEach(element => {
         element.classList.toggle('hidden');
     })
-
-
-    
 })
 
-function themeLight(){
-    document.body.style.background = `url(images/bg-${theme}-theme.png)`;
-    iconButton.style.backgroundColor = 'var(--Neutral100)';
-    textArea.style.backgroundColor = 'var(--Neutral100)';
-    textArea.style.borderColor = 'var(--Neutral200)';
-    document.body.style.color = "#12131A";
-}
 
-function themeDark(){
-    document.body.style.background = `url(images/bg-${theme}-theme.png)`;
-    iconButton.style.backgroundColor = '#2A2B37';
-    textArea.style.backgroundColor = '#2A2B37';
-    textArea.style.borderColor = 'var(--Neutral600)';
-    document.body.style.color = "white";
-}
+
+textArea.addEventListener('input', () => {
+    let lastValue = textArea.value.length - 1;
+    letters.push(textArea.value[lastValue]);
+    textArea.addEventListener('keydown', (e) => {
+        if(e.key === 'Backspace'){
+            letters.pop()
+        }
+    })
+    console.log(letters)
+})

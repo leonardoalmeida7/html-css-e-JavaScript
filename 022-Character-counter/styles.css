@@ -24,6 +24,34 @@
         /* Orange */
     --Orange500: #FE8159;
     --Orange800: #DA3701;
+
+
+    --Background: url(images/bg-dark-theme.png);
+}
+
+@media (prefers-color-theme: dark){
+    :root {
+        --Neutral600: #E4E4EF;
+    }
+
+    html {
+        color-scheme: dark;
+    }
+}
+
+[mode-light-dark="dark"]{
+    color-scheme: dark;
+    --Neutral600: #404254;
+    --Neutral700: #2A2B37;
+}
+
+[mode-light-dark="light"]{
+    color-scheme: light;
+    --Neutral600: #E4E4EF;
+    --Neutral700: #F2F2F7;
+    --Background: url(images/bg-light-theme.png);
+    --Neutral0: #12131A;
+    --Neutral200: #12131A;
 }
 
 * {
@@ -31,7 +59,7 @@
 }
 
 body {
-    background: url(images/bg-dark-theme.png), no-repeat, center center;
+    background: var(--Background), no-repeat, center center;
     color: var(--Neutral0)
 }
 
@@ -66,6 +94,7 @@ textarea {
     font-size: 1.25rem;
     resize: none;
     color: var(--Neutral200);
+    outline: none;
 }
 
 
