@@ -1,8 +1,11 @@
 const iconButton = document.querySelector('.button-icon');
 const textArea = document.querySelector('textarea');
 const logoAndIcon = document.querySelectorAll('img');
+const characters = document.querySelector('#characters');
+const words = document.querySelector('#words');
+const sentences = document.querySelector('#sentence');
 
-let letters = [];
+
 let theme = 'dark';
 
 iconButton.addEventListener('click', () => {
@@ -19,14 +22,22 @@ iconButton.addEventListener('click', () => {
 })
 
 
-
 textArea.addEventListener('input', () => {
-    let lastValue = textArea.value.length - 1;
-    letters.push(textArea.value[lastValue]);
-    textArea.addEventListener('keydown', (e) => {
-        if(e.key === 'Backspace'){
-            letters.pop()
-        }
-    })
-    console.log(letters)
+
+    let letters = textArea.value;
+    let word = letters.split(' ');
+    let sentence = letters.split('.');
+    sentence = sentence.filter((e) => e !== '' && e !== ' ');
+
+    let totalCharacters = letters.length;
+    let totalWords = word.length;
+    let totalSentences = sentence.length;
+    
+    characters.textContent = totalCharacters;
+    words.textContent = word[0] == '' ? 0 : totalWords;
+    let test
+    //console.log(sentence.join(''));
+    //console.log(sentence);
+
+    sentences.textContent = totalSentences;
 })
