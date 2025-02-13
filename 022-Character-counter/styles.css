@@ -42,24 +42,50 @@ h1 {
     letter-spacing: -1px;
 }
 
-.button-moon {
+.button-icon {
     background-color: var(--Neutral700);
     border: none;
     border-radius: 6px;
     padding: 6px;
 }
 
+#text,
+#no-letters  {
+    color: var(--Neutral200);
+}
+
+
 textarea {
     background-color: var(--Neutral700);
     border-radius: 14px;
     box-sizing: border-box;
+    border: 2px solid var(--Neutral600);
     padding: 16px;
     width: 100%;
+    height: 230px;
     font-size: 1.25rem;
+    resize: none;
+    color: var(--Neutral200);
 }
 
+
+input[type="checkbox"]{
+    all: unset;
+    border: .5px solid var(--Neutral200);
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    padding: 7px;
+    margin-right: 8px;
+}
+/* input[type="checkbox"]:active {
+    background-color: var(--Blue500);
+    background-image: url(images/icon-check.svg);
+    border: .5px solid var(--Neutral200);
+} */
+
 #letters-density > h3 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     line-height: 130%;
     letter-spacing: -1px;
     font-weight: 600;
@@ -79,12 +105,13 @@ textarea {
 #container-characters,
 #container-word,
 #container-sentence {
-    height: 150px;
+    height: 135px;
     background-repeat: no-repeat;
-    background-position: 125%;
-    background-size: 40%;
+    background-position: 120%;
+    background-size: 36%;
     border-radius: 16px;
     font-size: 1.25rem;
+    padding: 20px;
 }
 
 #container-characters{
@@ -100,4 +127,42 @@ textarea {
 #container-sentence {
     background-color: var(--Orange500);
     background-image: url(images/pattern-sentence-count.svg);
+}
+
+
+
+.hidden {
+    display: none;
+}
+
+.theme-light {
+    color: var(--Neutral900);
+}
+
+
+
+@media screen and (min-width: 768px){
+    h1 {
+        font-size: 4rem;
+    }
+    
+    #container-characters,
+    #container-word,
+    #container-sentence {
+        background-size: auto;
+        background-position: 200%;
+    }
+
+    .button-icon {
+        padding: 12px;
+    }
+}
+
+@media screen and (min-width: 1100px){
+    #container-characters,
+    #container-word,
+    #container-sentence {
+        background-size: auto;
+        background-position: 120%;
+    }
 }
