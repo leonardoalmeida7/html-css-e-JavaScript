@@ -107,11 +107,11 @@ input[type="checkbox"]{
     padding: 7px;
     margin-right: 8px;
 }
-/* input[type="checkbox"]:active {
+input[type="checkbox"]:checked {
     background-color: var(--Blue500);
     background-image: url(images/icon-check.svg);
     border: .5px solid var(--Neutral200);
-} */
+}
 
 #letters-density > h3 {
     font-size: 1.5rem;
