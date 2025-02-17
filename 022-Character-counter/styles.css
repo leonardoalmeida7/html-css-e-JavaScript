@@ -134,7 +134,7 @@ input[type="checkbox"]:checked {
 #container-characters,
 #container-word,
 #container-sentence {
-    height: 135px;
+    height: 145px;
     background-repeat: no-repeat;
     background-position: 120%;
     background-size: 36%;
@@ -146,6 +146,12 @@ input[type="checkbox"]:checked {
 #container-characters{
     background-color: var(--Blue400);
     background-image: url(images/pattern-character-count.svg);
+
+}
+
+#no-spaces {
+    font-size: 1rem;
+    font-weight: normal;
 }
 
 #container-word {
@@ -158,6 +164,19 @@ input[type="checkbox"]:checked {
     background-image: url(images/pattern-sentence-count.svg);
 }
 
+#statistics-letters {
+    height: 10px;
+    width: 90%;
+    background-color: var(--Neutral700);
+    border-radius: 10px;
+}
+
+.bar {
+    height: 10px;
+    background-color: var(--Blue500);
+    border-radius: 10px;
+    width: 16.06%;
+}
 
 
 .hidden {

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea id="meuTextarea"></textarea>
+    <p>Último caractere digitado: <span id="ultimo"></span></p>
+
+    <script>
+        const textarea = document.getElementById("meuTextarea");
+        const ultimo = document.getElementById("ultimo");
+
+        textarea.addEventListener("input", function (event) {
+            if (event.inputType !== "deleteContentBackward") {
+            ultimo.textContent = event.data;
+            }
+        });
+    </script>
+</body>
+</html>
