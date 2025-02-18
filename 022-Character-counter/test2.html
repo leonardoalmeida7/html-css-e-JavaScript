@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea id="meuTextarea" rows="5" cols="30"></textarea>
+<p>Letras apagadas: <span id="letraApagada"></span></p>
+
+<script>
+  const textarea = document.getElementById("meuTextarea");
+  const span = document.getElementById("letraApagada");
+  let ultimaLetra = "";
+
+    textarea.addEventListener("keydown", (event) => {
+        // Verifica se a tecla pressionada foi "Backspace"
+        if (event.key === "Backspace") {
+        // Pega o valor antes da remoção
+        const texto = textarea.value;
+        if (texto.length > 0) {
+            ultimaLetra = texto[texto.length - 1]; // Última letra antes de ser apagada
+            span.textContent = ultimaLetra; // Exibe a letra apagada
+        }
+        } 
+    });
+</script>
+
+</body>
+</html>

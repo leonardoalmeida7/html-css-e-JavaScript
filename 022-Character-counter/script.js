@@ -1,4 +1,3 @@
-const iconButton = document.querySelector('.button-icon');
 const textArea = document.querySelector('textarea');
 const logoAndIcon = document.querySelectorAll('img');
 const characters = document.querySelector('#characters');
@@ -10,16 +9,14 @@ const readingTime = document.querySelector('#time');
 
 
 
-
-
-let checkActive = false;
+let checkActiveSpaces = false;
 
 
 excludeSpaces.addEventListener('click', () => {
-    if(checkActive){
-        checkActive = false;
+    if(checkActiveSpaces){
+        checkActiveSpaces = false;
     }else {
-        checkActive = true;
+        checkActiveSpaces = true;
     }
 
     document.querySelector('#no-spaces').classList.toggle('hidden');
@@ -27,12 +24,38 @@ excludeSpaces.addEventListener('click', () => {
     analyzeRealTime();
     
 })
+let checkActiveLimit = false;
+let numLimit = document.querySelector('#num-character-limit');
+
+setCharacterLimit.addEventListener('click', () => {
+    if(checkActiveLimit === false){
+        numLimit.classList.remove('hidden');
+        numLimit.addEventListener('input', errorLimit)
+        errorLimit();
+        checkActiveLimit = true;
+    }else {
+        textArea.classList.remove('error')
+        numLimit.classList.add('hidden');
+        document.querySelector('#text-erro').classList.add('hidden');
+        checkActiveLimit = false;
+    }
+  
+})
+ function errorLimit(){
+    if(textArea.value.length > numLimit.value){
+        textArea.classList.add('error');
+        document.querySelector('#text-erro').classList.remove('hidden');
+        document.querySelector('#text-erro').innerHTML = `<img src="images/icon-info.svg"> Limit reached! Your text exceeds ${numLimit.value} characters`
+    }else {
+        textArea.classList.remove('error');
+        document.querySelector('#text-erro').classList.add('hidden');
+    }
+ }
 
 
 textArea.addEventListener('input', analyzeRealTime)
 
-
-function analyzeRealTime(e){
+function analyzeRealTime(){
     let addLetters = textArea.value;
     let word = addLetters.split(' ');
     let sentence = addLetters.split('.');
@@ -43,7 +66,7 @@ function analyzeRealTime(e){
     let totalWords = word.length;
     let totalSentences = sentence.length;
 
-    if(checkActive){
+    if(checkActiveSpaces){
         characters.textContent = textNoSpace.length;
         
     }else {
@@ -51,8 +74,7 @@ function analyzeRealTime(e){
     }
     
     
-    words.textContent = word[0] == '' ? 0 : totalWords;
-    
+    words.textContent = word[0] == ''  ? 0 : totalWords;
     sentences.textContent = sentence[0] == '' ? 0 : totalSentences;
     
     let time = totalCharacters / 300;
@@ -61,86 +83,82 @@ function analyzeRealTime(e){
     }else {
         readingTime.textContent = totalCharacters < 300 ? '<1' : time.toFixed();
     }
-    
 
     
-
-    let arrLetters = addLetters.split('');
-
-    let test = arrLetters.join('');
-
-    let test2 = new RegExp(e.data,  'g');
-    let test3 = test.match(test2); // quantidade de cada elemento digitado [x, x, x]
-    console.log(test3);
+    function contarLetras(texto) {
+        let contador = {};
+        let totalLetras = 0;
     
+        for (let char of texto) {
+            if (char.match(/[a-zA-Z]/)) {
+                let letra = char.toLowerCase();
+                contador[letra] = (contador[letra] || 0) + 1;
+                totalLetras++;
+            }
+        }
     
-    let guardar = '';
-    
-    if(e.inputType !== 'deleteContentBackward'){
-        guardar = addLetters[addLetters.length - 1];
-        createLetterDensity(totalCharacters, e, test3);
-        console.log(guardar)
-    }else{
-        //console.log(guardar)
-        removeLetterDensity(test3);
+        return { contador, totalLetras };
     }
 
+    let { contador, totalLetras } = contarLetras(addLetters);
+    let container = document.getElementById("letterDensity");
+    let toggleButton = document.getElementById("toggleButton");
+    
+
+    container.innerHTML = ""; // Limpa antes de atualizar
+
+    let letrasOrdenadas = Object.entries(contador)
+        .sort((a, b) => b[1] - a[1]); // Ordena do maior para o menor
+
+    letrasOrdenadas.forEach(([letra, qtd], index) => {
+        let percentual = ((qtd / totalLetras) * 100).toFixed(2);
+
+        let hiddenClass = index >= 5 ? "hidden" : ""; // Oculta as barras além das 5 primeiras
+
+        let bar = `
+            <div class="letter-bar ${hiddenClass}">
+                <span class="letter-label">${letra.toUpperCase()}</span>
+                <div class="bar">
+                    <div class="letter-progress" style="width: ${percentual}%"></div>
+                </div>
+                <span class="letter-percentage">${qtd} (${percentual}%)</span>
+            </div>
+        `;
+
+        container.innerHTML += bar;
+    });
+
+    // Só exibe o botão se houver mais de 5 letras diferentes
+    toggleButton.style.display = letrasOrdenadas.length > 5 ? "block" : "none";
+    if(checkActiveLimit){
+        errorLimit();
+    }
+    
 }
-
-
-
-
-function removeLetterDensity(test3){
-    const classContainer = document.querySelectorAll(test3);
-
-    classContainer.forEach(element => {
-        element.remove();
-    })
-}
-
-function createLetterDensity(totalCharacters, e, test3){
-    const msgNoLetters = document.querySelector('#no-letters');
-    const documentMain = document.querySelector('main');
-
-    const containerStatistics = document.createElement("div");
-    containerStatistics.setAttribute('id', test3 );
-    containerStatistics.classList.add('hidden');
-
-    const letter = document.createElement("div");
-    containerStatistics.appendChild(letter);
-    letter.textContent = e.data.toLocaleUpperCase();
     
-    
-    const statisticsLetters = document.createElement("div");
-    statisticsLetters.setAttribute('id', 'statistics-letters');
-    statisticsLetters.classList = 'my-auto mx-2'
-    const bar = document.createElement("div");
-    bar.classList = 'bar';
-    statisticsLetters.appendChild(bar);
-    
-    containerStatistics.appendChild(statisticsLetters);
-    
-    const statisticsLetter = document.createElement('div');
-    statisticsLetter.textContent = '40(16.06%)';
-    
-    containerStatistics.appendChild(statisticsLetter);
-    
-    
-    documentMain.appendChild(containerStatistics);
-    
-    
-    if(totalCharacters !== 0){
-        msgNoLetters.classList.add('hidden');
-        containerStatistics.classList.add('d-flex');
-    }else{
-        removeLetterDensity();
-        msgNoLetters.classList.remove('hidden');
-        containerStatistics.classList.remove('d-flex');
-    }  
+// Alternar visibilidade ao clicar no botão
+document.getElementById("toggleButton").addEventListener("click", function () {
+    let hiddenElements = document.querySelectorAll(".letter-bar.hidden");
+    let isExpanded = hiddenElements.length === 0;
+    let icon = '';
 
- 
-}
+    document.querySelectorAll(".letter-bar").forEach((bar, index) => {
+        if (index >= 5) {
+            bar.classList.toggle("hidden", isExpanded);
+        }
+    });
+    if(isExpanded){
+        icon = `See more <i class="fa-solid fa-chevron-down"></i>`
+        this.innerHTML = icon;
+    }else {
+        icon = `See less <i class="fa-solid fa-chevron-up"></i>`
+        this.innerHTML = icon;
+    }
+});
 
+
+
+const iconButton = document.querySelector('.button-icon');
 let theme = 'dark';
 
 iconButton.addEventListener('click', () => {
