@@ -13,11 +13,8 @@ let checkActiveSpaces = false;
 
 
 excludeSpaces.addEventListener('click', () => {
-    if(checkActiveSpaces){
-        checkActiveSpaces = false;
-    }else {
-        checkActiveSpaces = true;
-    }
+   checkActiveSpaces = !
+   checkActiveSpaces;
 
     document.querySelector('#no-spaces').classList.toggle('hidden');
 
@@ -28,18 +25,17 @@ let checkActiveLimit = false;
 let numLimit = document.querySelector('#num-character-limit');
 
 setCharacterLimit.addEventListener('click', () => {
-    if(checkActiveLimit === false){
-        numLimit.classList.remove('hidden');
+    checkActiveLimit = !
+    checkActiveLimit;
+    numLimit.classList.toggle('hidden', !checkActiveLimit);
+    textArea.classList.remove('error')
+    document.querySelector('#text-erro').classList.add('hidden');
+    if(checkActiveLimit){
         numLimit.addEventListener('input', errorLimit)
         errorLimit();
-        checkActiveLimit = true;
-    }else {
-        textArea.classList.remove('error')
-        numLimit.classList.add('hidden');
-        document.querySelector('#text-erro').classList.add('hidden');
-        checkActiveLimit = false;
+        
     }
-  
+    
 })
  function errorLimit(){
     if(textArea.value.length > numLimit.value){
@@ -57,25 +53,24 @@ textArea.addEventListener('input', analyzeRealTime)
 
 function analyzeRealTime(){
     let addLetters = textArea.value;
-    let word = addLetters.split(' ');
-    let sentence = addLetters.split('.');
-    sentence = sentence.filter((e) => e !== '');
-    let textNoSpace = word.join('');
+    const text = addLetters.trim();
+    const sentence = text.match(/[^.!?]+[.!?]/g);
+    let word = text.match(/\b[\wÀ-ÿ'-]+\b/g);
     
     let totalCharacters = addLetters.length;
-    let totalWords = word.length;
-    let totalSentences = sentence.length;
-
+    let textNoSpace = word ? word.join('').length : 0;
+    console.log(word)
+    
     if(checkActiveSpaces){
-        characters.textContent = textNoSpace.length;
+        characters.textContent = textNoSpace;
         
     }else {
         characters.textContent = totalCharacters;
     }
     
     
-    words.textContent = word[0] == ''  ? 0 : totalWords;
-    sentences.textContent = sentence[0] == '' ? 0 : totalSentences;
+    words.textContent = word ? word.length : 0;
+    sentences.textContent = sentence ? sentence.length : 0;
     
     let time = totalCharacters / 300;
     if(time == 0){
@@ -85,39 +80,38 @@ function analyzeRealTime(){
     }
 
     
-    function contarLetras(texto) {
-        let contador = {};
-        let totalLetras = 0;
+    function countLetters(text) {
+        let count = {};
+        let totalLetters = 0;
     
-        for (let char of texto) {
+        for (let char of text) {
             if (char.match(/[a-zA-Z]/)) {
-                let letra = char.toLowerCase();
-                contador[letra] = (contador[letra] || 0) + 1;
-                totalLetras++;
+                let letter = char.toLowerCase();
+                count[letter] = (count[letter] || 0) + 1;
+                totalLetters++;
             }
         }
     
-        return { contador, totalLetras };
+        return { count, totalLetters };
     }
 
-    let { contador, totalLetras } = contarLetras(addLetters);
+    let { count, totalLetters } = countLetters(addLetters);
     let container = document.getElementById("letterDensity");
     let toggleButton = document.getElementById("toggleButton");
     
 
-    container.innerHTML = ""; // Limpa antes de atualizar
+    container.replaceChildren();
 
-    let letrasOrdenadas = Object.entries(contador)
-        .sort((a, b) => b[1] - a[1]); // Ordena do maior para o menor
+    let lettersOrder = Object.entries(count)
+        .sort((a, b) => b[1] - a[1]);
 
-    letrasOrdenadas.forEach(([letra, qtd], index) => {
-        let percentual = ((qtd / totalLetras) * 100).toFixed(2);
+    lettersOrder.forEach(([letter, qtd], index) => {
+        let percentual = ((qtd / totalLetters) * 100).toFixed(2);
 
-        let hiddenClass = index >= 5 ? "hidden" : ""; // Oculta as barras além das 5 primeiras
-
+        let hiddenClass = index >= 5 ? "hidden" : ""; 
         let bar = `
             <div class="letter-bar ${hiddenClass}">
-                <span class="letter-label">${letra.toUpperCase()}</span>
+                <span class="letter-label">${letter.toUpperCase()}</span>
                 <div class="bar">
                     <div class="letter-progress" style="width: ${percentual}%"></div>
                 </div>
@@ -128,15 +122,13 @@ function analyzeRealTime(){
         container.innerHTML += bar;
     });
 
-    // Só exibe o botão se houver mais de 5 letras diferentes
-    toggleButton.style.display = letrasOrdenadas.length > 5 ? "block" : "none";
+    toggleButton.style.display = lettersOrder.length > 5 ? "block" : "none";
     if(checkActiveLimit){
         errorLimit();
     }
     
 }
     
-// Alternar visibilidade ao clicar no botão
 document.getElementById("toggleButton").addEventListener("click", function () {
     let hiddenElements = document.querySelectorAll(".letter-bar.hidden");
     let isExpanded = hiddenElements.length === 0;
@@ -159,17 +151,11 @@ document.getElementById("toggleButton").addEventListener("click", function () {
 
 
 const iconButton = document.querySelector('.button-icon');
+
 let theme = 'dark';
 
 iconButton.addEventListener('click', () => {
-    if(theme == 'dark'){
-        document.documentElement.setAttribute('mode-light-dark', 'light');
-        theme = 'light';
-    }else {
-        document.documentElement.setAttribute('mode-light-dark', 'dark');
-        theme = 'dark';
-    }
-    logoAndIcon.forEach(element => {
-        element.classList.toggle('hidden');
-    })
+    theme = theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('mode-light-dark', theme);
+    logoAndIcon.forEach(element => element.classList.toggle('hidden'))
 })
