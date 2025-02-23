@@ -59,7 +59,6 @@ function analyzeRealTime(){
     
     let totalCharacters = addLetters.length;
     let textNoSpace = word ? word.join('').length : 0;
-    console.log(word)
     
     if(checkActiveSpaces){
         characters.textContent = textNoSpace;
