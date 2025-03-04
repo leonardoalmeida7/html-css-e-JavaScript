@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Password generator app</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <h1>Password Generator</h1>
+  <header>
+    <div id="password">
+      P4$5W0rD!
+    </div>
+    <i class="fa-regular fa-copy"></i>
+  </header>
+  <main>
+    <div class="caracter_length">
+      <div id="text_caracter_length">
+        <p>
+          Character Length
+        </p>
+        <span id="num_length">0</span>
+      </div>
+      <div class="slider-container">
+        <div class="slider-track"></div>
+        <div class="slider-thumb" id="slider"></div>
+      </div>
+    </div>
+    <div class="includes">
+      <input type="checkbox" name="in_uppercase" id="in_uppercase">
+      <p>Include Uppercase Letters</p>
+      <br>
+      <input type="checkbox" name="in_lowercase" id="in_lowercase">
+      <p>Include Lowercase Letters</p>
+      <br>
+      <input type="checkbox" name="in_numbers" id="in_numbers">
+      <p>Include Numbers</p>
+      <br>
+      <input type="checkbox" name="in_symbols" id="in_symbols">
+      <p>Include Symbols</p>
+    </div>
+    <div class="container_strength">
+      <div>
+        Strength
+      </div>
+      <div id="rectagles">
+        <div class="strength">
+          <!-- MEDIUM -->
+        </div>
+        <div class="rectangle"></div>
+        <div class="rectangle"></div>
+        <div class="rectangle"></div>
+        <div class="rectangle"></div>
+      </div>
+    </div>
+    <div class="btn">
+      <button type="button">Generate <i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+  </main>
+  <script src="https://kit.fontawesome.com/f1eea2035c.js" crossorigin="anonymous"></script>
+</body>
+</html>
