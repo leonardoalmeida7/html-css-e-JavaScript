@@ -46,6 +46,7 @@ header {
 
 #password {
     font-size: 1.8rem;
+    color: var(--Color2);
 }
 
 header i {
@@ -77,36 +78,6 @@ header i:hover {
     color: var(--Color5);
 }
 
-/* .slider-container {
-    height: 8px;
-    background-color: var(--Color4);
-    margin-top: 18px;
-}
-
-.slider-track {
-    height: 8px;
-    background-color: var(--Color5);
-    width: 0px;
-    position: relative;
-}
-
-.slider-thumb {
-    cursor: pointer;
-    display: block;
-    width: 30px;
-    height: 30px;
-    background-color: var(--Color3);
-    border-radius: 50%;
-    position: absolute;
-    right: -15px;
-    top: -11px;
-}
-
-#circle:hover,
-#circle:active{
-    background-color: var(--Color1);
-    border: 1px solid var(--Color5);
-} */
 .slider-container {
     height: 10px;
     background: #333;
@@ -175,13 +146,13 @@ header i:hover {
     font-weight: bold;
 }
 
-div.strength {
+div#strength {
     color: var(--Color3);
     font-size: 1.4rem;
     margin-right: 8px;
 }
 
-#rectagles {
+#rectangles {
     display: flex;
 }
 
