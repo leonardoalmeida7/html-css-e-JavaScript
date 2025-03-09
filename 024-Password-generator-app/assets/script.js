@@ -5,32 +5,43 @@ const sliderTrack = document.querySelector('.slider-track');
 
 let isDragging = false;
 
-slider.addEventListener('mousedown', (e) => {
-isDragging = true;
-document.addEventListener('mousemove', onMouseMove);
-document.addEventListener('mouseup', onMouseUp);
-});
+slider.addEventListener('mousedown', startDrag);
+slider.addEventListener('touchstart', startDrag, { passive: true });
+
+function startDrag(e) {
+    isDragging = true;
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
+    
+    document.addEventListener('touchmove', onMouseMove, { passive: true });
+    document.addEventListener('touchend', onMouseUp);
+}
 
 function onMouseMove(e) {
     if (!isDragging) return;
+    
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
     const containerRect = sliderContainer.getBoundingClientRect();
-    let newLeft = e.clientX - containerRect.left;
+    let newLeft = clientX - containerRect.left;
+
     if (newLeft < 0) newLeft = 0;
     if (newLeft > containerRect.width) newLeft = containerRect.width;
-    
-    slider.style.left = `${newLeft}px`;
-    sliderTrack.style.width = `${newLeft + 10}px`;
+
+    slider.style.left =` ${newLeft}px`;
+    sliderTrack.style.width = `${newLeft}px`;
+
     const percentage = (newLeft / containerRect.width) * 100;
-    numLength.textContent = Math.round(percentage / 5); 
-    
+    numLength.textContent = Math.round(percentage / 5);
 }
 
 function onMouseUp() {
     isDragging = false;
     document.removeEventListener('mousemove', onMouseMove);
     document.removeEventListener('mouseup', onMouseUp);
+    
+    document.removeEventListener('touchmove', onMouseMove);
+    document.removeEventListener('touchend', onMouseUp);
 }
-
 
 document.querySelector('button').addEventListener('click', generatePassword);
 
