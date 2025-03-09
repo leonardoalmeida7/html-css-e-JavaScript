@@ -24,7 +24,7 @@ main, header {
     background-color: var(--Color1);
     box-sizing: border-box;
     margin: 23px auto;
-    min-width: 320px;
+    min-width: 360px;
     max-width: 540px;
     width: 90%;
     padding: 25px;
