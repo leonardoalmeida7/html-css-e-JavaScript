@@ -110,28 +110,46 @@ function displayPassword(password) {
 }
 
 function updateStrengthIndicator(length, characterPoolSize) {
-    const strengthLevels = ["too weak!", "weak", "medium", "strong"];
-    const thresholds = [5, 10, 15];
-    let strengthIndex = thresholds.findIndex(threshold => length <= threshold);
-    if (strengthIndex === -1) strengthIndex = 3;
+  const strengthLevels = ["too weak!", "weak", "medium", "strong"];
+  
+  let strengthIndex = getStrengthIndexByLength(length);
+  
+  if (strengthIndex < 3) {
+      strengthIndex = adjustStrengthByCharacterPool(strengthIndex, characterPoolSize);
+  }
 
-    if (strengthIndex === 1 && characterPoolSize >= 52) strengthIndex = 2;
-    if (strengthIndex === 2 && characterPoolSize > 26) strengthIndex = 3;
-
-    document.getElementById('strength').textContent = strengthLevels[strengthIndex];
-    updateStrengthBars(strengthIndex);
+  document.getElementById('strength').textContent = strengthLevels[strengthIndex];
+  updateStrengthBars(strengthIndex);
 }
 
-function updateStrengthBars(index) {
-    const rectangles = document.querySelectorAll('.rectangle');
-    const styles = [
-        'var(--Color6)', 'var(--Color7)', 'var(--Color8)', 'var(--Color5)'
-    ];
-  
-    rectangles.forEach((rect, i) => {
-        rect.style.background = i <= index ? styles[index] : 'transparent';
-        rect.style.border = i <= index ? `2px solid ${styles[index]}` : '2px solid var(--Color3)';
-    });
+function getStrengthIndexByLength(length) {
+  if (length <= 5) return 0; // too weak
+  if (length <= 10) return 1; // weak
+  if (length <= 15) return 2; // medium
+  return 3; // strong
+}
+
+function adjustStrengthByCharacterPool(strengthIndex, characterPoolSize) {
+  if (strengthIndex === 1 && characterPoolSize >= 52) return 2; // weak -> medium
+  if (strengthIndex === 2 && characterPoolSize > 26) return 3; // medium -> strong
+  return strengthIndex;
+}
+
+function updateStrengthBars(strengthIndex) {
+  const rectangles = document.querySelectorAll('.rectangle');
+  const strengthColors = [
+      'var(--Color6)', // "too weak!"
+      'var(--Color7)', // "weak"
+      'var(--Color8)', // "medium"
+      'var(--Color5)'  // "strong"
+  ];
+
+  rectangles.forEach((rect, index) => {
+      const color = index <= strengthIndex ? strengthColors[strengthIndex] : 'transparent';
+      const borderColor = index <= strengthIndex ? `2px solid ${strengthColors[strengthIndex]}` : '2px solid var(--Color3)';
+      rect.style.background = color;
+      rect.style.border = borderColor;
+  });
 }
 
 document.querySelector('.fa-copy').addEventListener('click', () => {
