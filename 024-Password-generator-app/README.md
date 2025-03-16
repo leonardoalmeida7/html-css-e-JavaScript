@@ -52,5 +52,5 @@ Users should be able to:
 ## Author
 
 - GitHub - [Leonardo](https://github.com/leonardoalmeida7)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
+- Frontend Mentor - [@leonardoalmeida7](https://www.frontendmentor.io/profile/yourusername)
 - Linkedin - [Leonardo Silva](https://www.linkedin.com/in/leonardo-silva-475778198/)
