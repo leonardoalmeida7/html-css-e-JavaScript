@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&display=swap');
+
+:root {
+    /* Paleta de Cores */
+    --Color1: #D5966C;
+    --Color2: #151515;
+    --Color3: #444444;
+    --Color4: #FFFFFF;
+
+    /* Tipografia */
+    --FontPrimary: "Big Shoulders", sans-serif;
+}
+
+* {
+    font-family: var(--FontPrimary);
+}
+
+/* Estilo do header */
+
+
+
