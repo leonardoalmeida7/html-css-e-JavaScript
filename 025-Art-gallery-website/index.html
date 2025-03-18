@@ -13,64 +13,68 @@
 </head>
 <body>
 
-  <header class="container-fluid">
+  <header class="container-fluid p-md-0">
     <div class="header-img">
       <div class="design-img"></div>
       <!-- Imagem dinâmica -->
     </div>
-    <div class="header-texts">
-      <div class="title">
-        <h1>Modern Art Gallery</h1>
+    <div class="header-texts p-sm-5 p-md-0">
+      <div class="title py-4">
+        <h1 class="fw-bold">Modern <br>Art Gallery</h1>
       </div>
       <div class="infos">
-        <p>
+        <p class="fw-light">
           The arts in the collection of the Modern Art Gallery all started
           from a spark of inspiration. Will these pieces inspire you? Visit
           us and find out.
         </p>
-        <button type="button">
-          Our location
+        <div class="button py-3">
+          <button type="button" class="fs-5 fw-bold">
+            Our location
+          </button>
           <div class="container-button-arrow d-inline-block">
             <img src="assets/imgs/icon-arrow-right.svg" alt="icon_arrow">
           </div>
-        </button>
+        </div>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <section>
-      <div class="container-img1">
+    <section class="info-1 d-md-flex flex-row-reverse">
+      <div class="img1 mt-5 flex-grow-1">
         <!-- imagem dinâmica -->
       </div>
-      <div class="container-text">
-        <h2>Your day at the gallery</h2>
-        <p>
+      <div class="text mt-3 py-md-5">
+        <h2 class="fw-bold mt-md-5">Your day at the gallery</h2>
+        <p class="fw-light">
           Wander through our distinct collections and find new insights about
           our artists. Dive into the details of their creative process.
         </p>
       </div>
     </section>
-    <section>
-      <div class="container-img2">
+    <section class="info-2 row p-3">
+      <div class="img2">
         <!-- imagem dinâmica -->
       </div>
-      <div class="container-img3">
-        <!-- imagem dinâmica -->
-      </div>
-      <div class="container-black">
-        <h3>Come &amp; be inspired</h3>
-        <p>
-          We’re excited to welcome you to our gallery and see how our collections
-          influence you.
-        </p>
+      <div class=" p-0" id="test">
+        <div class="img3">
+          <!-- imagem dinâmica -->
+        </div>
+        <div class="container-black px-4 py-5">
+          <h3 class="fw-bold mb-4">Come &amp; be inspired</h3>
+          <p class="fw-light">
+            We’re excited to welcome you to our gallery and see how our collections
+            influence you.
+          </p>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="container-fluid">
-    <h4>Modern Art Gallery</h4>
-    <p>
+  <footer class="container-fluid p-4">
+    <h4 class="fw-bold my-3">Modern <br>Art Gallery</h4>
+    <p class="fw-light my-4">
       The Modern Art Gallery is free to all visitors and open seven days a week 
       from 8am to 9pm. Find us at 99 King Street, Newport, USA.
     </p>
@@ -78,6 +82,6 @@
       <img src="assets/imgs/icon-facebook.svg" alt="">
     </div>
   </footer>
-  
+
 </body>
 </html>

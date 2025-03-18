@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&display=swap');
 
 :root {
@@ -8,14 +9,185 @@
     --Color4: #FFFFFF;
 
     /* Tipografia */
-    --FontPrimary: "Big Shoulders", sans-serif;
+    --FontTitulos: "Big Shoulders", sans-serif;
+    --FontParagrafos: "Outfit", sans-serif;
 }
 
 * {
-    font-family: var(--FontPrimary);
+    font-family: var(--FontParagrafos);
+    color: var(--Color2);
 }
 
 /* Estilo do header */
 
+.header-img {
+    background: url(../imgs/mobile/image-hero@2x.jpg) no-repeat center;
+    background-size: cover;
+    height: 300px;
+}
+
+h1{
+    font-family: var(--FontTitulos);
+    text-transform: uppercase;
+    line-height: 3.9rem;
+    font-size: 4.5rem;
+}
+
+p {
+    color: var(--Color3);
+    font-size: 1.1rem;
+}
+
+header .infos p {
+    color: var(--Color3);
+    font-size: 1.1rem;
+}
+
+header button {
+    background-color: var(--Color2);
+    border: none;
+    color: var(--Color4);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 18px 30px;
+    font-family: var(--FontTitulos);
+}
+.container-button-arrow {
+    background-color: var(--Color1);
+    position: absolute;
+    padding: 20px 20px;
+    cursor: pointer;
+}
+
+/* Estilo do main */
+
+h2 {
+    font-size: 3.7rem;
+    font-family: var(--FontTitulos);
+    text-transform: uppercase;
+    line-height: 3.3rem;
+}
+
+main .img1 {
+    background: url(../imgs/mobile/image-grid-1@2x.jpg) no-repeat center;
+    background-size: cover;
+    height: 300px;
+}
+
+main .text {
+    padding-right: 40px;
+}
+
+main .img2 {
+    background: url(../imgs/mobile/image-grid-2@2x.jpg) no-repeat center;
+    background-size: cover;
+    height: 500px;
+    margin-bottom: 20px;
+}
+
+main .img3 {
+    background: url(../imgs/mobile/image-grid-3@2x.jpg) no-repeat center;
+    background-size: cover;
+    height: 300px;
+}
+
+main .container-black {
+    background-color: var(--Color2);
+    color: var(--Color4);
+    margin-top: 18px;
+}
+
+main .container-black h3 {
+    font-family: var(--FontTitulos);
+    font-size: 3rem;
+    text-transform: uppercase;
+    line-height: 2.7rem;
+}
+
+main .container-black > p {
+    color: var(--Color4);
+}
 
 
+/* Footer Estilo */
+
+footer {
+    background-color: var(--Color2);
+    margin-top: 127px;
+}
+
+footer h4 {
+    text-transform: uppercase;
+    font-family: var(--FontTitulos);
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+}
+
+
+footer h4,
+footer p {
+    color: var(--Color4);
+}
+
+@media screen and (min-width: 770px) {
+    .header-img {
+        background: url(../imgs/tablet/image-hero@2x.jpg) no-repeat center;
+        background-size: cover;
+        height: 650px;
+        width: 50%;
+    }
+
+    .header-texts {
+        width: 50%;
+        position: absolute;
+        top: 12%;
+        right: 5%;
+    }
+
+    main {
+        margin-top: 70px;
+    }
+
+    main .img1 {
+        background: url(../imgs/tablet/image-grid-1@2x.jpg) no-repeat center;
+        background-size: cover;
+        height: 400px;
+    }
+
+    main .text {
+        width: 40%;
+    }
+
+    section.info-2 {
+        height: 700px;
+    }
+
+    main .img2 {
+        background: url(../imgs/tablet/image-grid-2@2x.jpg) no-repeat center;
+        background-size: cover;
+        height: 100%;
+        width: 55%;
+        margin-right: 2%;
+    }
+
+    main .img3 {
+        background: url(../imgs/tablet/image-grid-3@2x.jpg) no-repeat center;
+        background-size: cover;
+        height: 300px;
+        width: 100%;
+    }
+
+    main .container-black {
+        background-color: var(--Color2);
+        color: var(--Color4);
+        height: 350px;
+        margin-top: 4.5%;
+    }
+    #test {
+        width: 43%;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    
+}
