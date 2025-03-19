@@ -20,7 +20,7 @@
 
 /* Estilo do header */
 
-.header-img {
+.hero {
     background: url(../imgs/mobile/image-hero@2x.jpg) no-repeat center;
     background-size: cover;
     height: 300px;
@@ -49,15 +49,32 @@ header button {
     color: var(--Color4);
     text-transform: uppercase;
     letter-spacing: 2px;
-    padding: 18px 30px;
+    padding: 18px 25px;
     font-family: var(--FontTitulos);
 }
-.container-button-arrow {
-    background-color: var(--Color1);
+
+header button::after {
+    content: "";
+    background: var(--Color1) url(../imgs/icon-arrow-right.svg) no-repeat center;
+    display: inline-block;
+    width: 50px;
+    height: 66px;
+    padding: 20px;
+    margin-left: 20px;
     position: absolute;
-    padding: 20px 20px;
-    cursor: pointer;
+    top: 619px;
+    left: 168px;
 }
+
+header button:hover {
+    background-color: var(--Color1);
+}
+
+header button:hover::after {
+    background-color: var(--Color2);
+}
+
+
 
 /* Estilo do main */
 
@@ -129,8 +146,25 @@ footer p {
     color: var(--Color4);
 }
 
+.icons i {
+    color: var(--Color4);
+    font-size: 1.5rem;
+    margin-right: 18px;
+}
+.icons i:hover {
+    color: var(--Color1);
+}
+
+@media screen and (min-width: 576px){
+    header button::after {
+        top: 667px;
+        left: 216px;
+    }
+}
+
+
 @media screen and (min-width: 770px) {
-    .header-img {
+    .hero {
         background: url(../imgs/tablet/image-hero@2x.jpg) no-repeat center;
         background-size: cover;
         height: 650px;
@@ -142,6 +176,11 @@ footer p {
         position: absolute;
         top: 12%;
         right: 5%;
+    }
+
+    header button::after {
+        top: 333px;
+        left: 155px;
     }
 
     main {
@@ -188,6 +227,94 @@ footer p {
     }
 }
 
+@media screen and (min-width: 880px) {
+    header button::after {
+        top: 303px;
+        left: 156px;
+    }
+}
+
 @media screen and (min-width: 1200px){
-    
+    header {
+        height: 800px;
+    }
+
+    header button::after {
+        content: "";
+        background: var(--Color1) url(../imgs/icon-arrow-right.svg) no-repeat center;
+        display: inline-block;
+        width: 50px;
+        height: 66px;
+        padding: 20px;
+        margin-left: 20px;
+        position: absolute;
+        top: 152px;
+        left: 156px;
+    }
+
+    .left-bg{
+        width: 500px;
+        height: 700px;
+        background-color: var(--Color2);
+        position: absolute;
+    }
+
+    h1 {
+        font-size: 6.5rem;
+        line-height: 5.5rem;
+    }
+
+    .hero {
+        background: url(../imgs/desktop/image-hero@2x.jpg) no-repeat center;
+        background-size: cover;
+        height: 700px;
+        width: 600px;
+        position: absolute;
+        left: 500px;
+    }
+
+    .header-texts {
+        position: absolute;
+        top: 280px;
+        left: 211px;
+    }
+
+    .title {
+        position: absolute;
+        transform: translateY(-50%);
+        color: white;
+        font-size: 4.5rem;
+        z-index: 2;
+        mix-blend-mode: difference;
+    }
+    .infos {
+        width: 380px;
+        position: absolute;
+        transform: translateY(-50%);
+        right: -60%;
+    }
+
+    main .img2 {
+        height: 680px;
+    }
+
+    main .container-black h3 {
+        font-size: 4rem;
+        line-height: 4rem;
+    }
+
+    main .container-black p {
+        font-size: 1.2rem;
+    }
+
+    footer h4{
+        font-size: 2.2rem;
+        line-height: 2.2rem;
+    }
+}   
+
+@media screen and (min-width: 1450px) {
+    .infos {
+        left: 820px;
+    }
 }

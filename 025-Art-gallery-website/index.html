@@ -7,23 +7,27 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
   <!-- Bootstrap CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/bootstrap-5.3.3-dist/css/bootstrap.min.css">
   <!-- Personalização -->
   <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Awesome icons -->
+  <script src="https://kit.fontawesome.com/f1eea2035c.js" crossorigin="anonymous"></script>
   <title>Frontend Mentor | Art gallery website</title>
 </head>
 <body>
 
-  <header class="container-fluid p-md-0">
-    <div class="header-img">
-      <div class="design-img"></div>
+  <header class="container-fluid p-md-0 d-xl-flex">
+    <div class="left-bg ">
+    </div>
+    <div class="hero">
       <!-- Imagem dinâmica -->
     </div>
-    <div class="header-texts p-sm-5 p-md-0">
+    <div class="header-texts p-sm-5 p-md-0 mt-3 d-xl-flex">
       <div class="title py-4">
         <h1 class="fw-bold">Modern <br>Art Gallery</h1>
       </div>
       <div class="infos">
-        <p class="fw-light">
+        <p class="fw-light fs-5 ">
           The arts in the collection of the Modern Art Gallery all started
           from a spark of inspiration. Will these pieces inspire you? Visit
           us and find out.
@@ -32,9 +36,6 @@
           <button type="button" class="fs-5 fw-bold">
             Our location
           </button>
-          <div class="container-button-arrow d-inline-block">
-            <img src="assets/imgs/icon-arrow-right.svg" alt="icon_arrow">
-          </div>
         </div>
       </div>
     </div>
@@ -46,14 +47,14 @@
         <!-- imagem dinâmica -->
       </div>
       <div class="text mt-3 py-md-5">
-        <h2 class="fw-bold mt-md-5">Your day at the gallery</h2>
+        <h2 class="fw-bold mt-md-5 mt-4">Your day at the gallery</h2>
         <p class="fw-light">
           Wander through our distinct collections and find new insights about
           our artists. Dive into the details of their creative process.
         </p>
       </div>
     </section>
-    <section class="info-2 row p-3">
+    <section class="info-2 row p-3 p-md-4">
       <div class="img2">
         <!-- imagem dinâmica -->
       </div>
@@ -61,7 +62,7 @@
         <div class="img3">
           <!-- imagem dinâmica -->
         </div>
-        <div class="container-black px-4 py-5">
+        <div class="container-black px-4 py-5 p-xl-5">
           <h3 class="fw-bold mb-4">Come &amp; be inspired</h3>
           <p class="fw-light">
             We’re excited to welcome you to our gallery and see how our collections
@@ -72,14 +73,26 @@
     </section>
   </main>
 
-  <footer class="container-fluid p-4">
-    <h4 class="fw-bold my-3">Modern <br>Art Gallery</h4>
-    <p class="fw-light my-4">
-      The Modern Art Gallery is free to all visitors and open seven days a week 
-      from 8am to 9pm. Find us at 99 King Street, Newport, USA.
-    </p>
-    <div class="icons">
-      <img src="assets/imgs/icon-facebook.svg" alt="">
+  <footer class="container-fluid p-5 d-md-flex justify-content-around">
+    <div>
+      <h4 class="fw-bold my-3">Modern <br>Art Gallery</h4>
+    </div>
+    <div style="max-width: 500px;">
+      <p class="fw-light my-4">
+        The Modern Art Gallery is free to all visitors and open seven days a week 
+        from 8am to 9pm. Find us at 99 King Street, Newport, USA.
+      </p>
+    </div>
+    <div class="icons d-flex mt-xl-5">
+      <div class="icon-facebook">
+        <i class="fa-brands fa-square-facebook"></i>
+      </div>
+      <div class="icon-instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </div>
+      <div class="icon-twitter">
+        <i class="fa-brands fa-twitter"></i>
+      </div>
     </div>
   </footer>
 
