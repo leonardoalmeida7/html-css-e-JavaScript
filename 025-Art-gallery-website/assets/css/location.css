@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&display=swap');
+
+:root {
+    /* Paleta de Cores */
+    --Color1: #D5966C;
+    --Color2: #151515;
+    --Color3: #444444;
+    --Color4: #FFFFFF;
+
+    /* Tipografia */
+    --FontTitulos: "Big Shoulders", sans-serif;
+    --FontParagrafos: "Outfit", sans-serif;
+}
+
+* {
+    font-family: var(--FontParagrafos);
+    color: var(--Color2);
+}
+
+header {
+    background: url(../imgs/mobile/image-map@2x.png) no-repeat center;
+    background-size: cover;
+    height: 60dvh;
+}
+
+header button {
+    background-color: var(--Color2);
+    border: none;
+    color: var(--Color4);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: var(--FontTitulos);
+    padding: 22px 30px;
+    position: relative;
+    left: 50px;
+    font-weight: bold;
+}
+
+header button::before {
+    content: "";
+    background: var(--Color1) url(../imgs/icon-arrow-left.svg) no-repeat center;
+    display: inline-block;
+    width: 55px;
+    height: 68px;
+    padding: 20px;
+    margin-left: 20px;
+    position: absolute;
+    top: 0px;
+    right: 165px;
+}
+
+header button:hover {
+    background-color: var(--Color1);
+}
+
+header button:hover::before {
+    background-color: var(--Color2);
+}
+
+
+main {
+    background-color: var(--Color2);
+    padding: 60px 23px;
+}
+
+main h1 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+}
+
+main h2 {
+    color: var(--Color1);
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+main h1,
+main h2 {
+    text-transform: uppercase;
+    font-family: var(--FontTitulos);
+}
+
+main p {
+    font-weight: lighter;
+    font-size: 1.1rem;
+}
+
+main h1,
+main p {
+    color: var(--Color4);
+}
+
+footer {
+    background-color: var(--Color1);
+}
+
+footer h3 {
+    text-transform: uppercase;
+    line-height: 1.9rem;
+    font-family: var(--FontTitulos);
+    font-size: 2rem;
+}
+
+.icons i {
+    color: var(--Color2);
+    font-size: 1.5rem;
+    margin-right: 18px;
+}
+.icons i:hover {
+    color: var(--Color4);
+}
+
+@media screen and (min-width: 600px) {
+    header {
+        background: url(../imgs/tablet/image-map@2x.png) no-repeat center;
+        background-size: cover;
+    }
+}
+
+
+@media screen and (min-width: 770px) {
+    header button {
+        left: 120px;
+    }
+    main {
+        padding: 100px 0;
+    }
+
+    .container-title {
+        width: 100px;
+    }
+
+    .container-text {
+        width: 400px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    header {
+        background: url(../imgs/desktop/image-map@2x.png) no-repeat center;
+        background-size: cover;
+        height: 70dvh;
+    }
+
+    header button {
+        left: 220px;
+    }
+
+    main {
+        padding: 100px 0;
+    }
+
+    main p {
+        font-weight: lighter;
+        font-size: 1.3rem;
+    }
+
+    .container-text {
+        width: 500px;
+    }
+
+    main h1 {
+        font-size: 4.5rem;
+    }
+
+    main h2 {
+        font-size: 2.2rem;
+    }
+
+    footer h3 {
+        font-size: 2.1rem;
+    }
+
+    footer p {
+        font-size: 1.1rem;
+    }
+}
