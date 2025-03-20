@@ -20,6 +20,11 @@
 
 /* Estilo do header */
 
+header {
+    margin-bottom: 100px;
+}
+
+
 .hero {
     background: url(../imgs/mobile/image-hero@2x.jpg) no-repeat center;
     background-size: cover;
@@ -157,10 +162,14 @@ footer p {
 }
 
 @media screen and (min-width: 770px) {
+    header {
+        height: 100dvh;
+        margin-bottom: 200px;
+    }
     .hero {
         background: url(../imgs/tablet/image-hero@2x.jpg) no-repeat center;
         background-size: cover;
-        height: 650px;
+        height: 100dvh;
         width: 50%;
     }
 
@@ -216,13 +225,9 @@ footer p {
 }
 
 @media screen and (min-width: 1200px){
-    header {
-        height: 800px;
-    }
-
     .left-bg{
         width: 500px;
-        height: 700px;
+        height: 100dvh;
         background-color: var(--Color2);
         position: absolute;
     }
@@ -235,7 +240,7 @@ footer p {
     .hero {
         background: url(../imgs/desktop/image-hero@2x.jpg) no-repeat center;
         background-size: cover;
-        height: 700px;
+        height: 100dvh;
         width: 600px;
         position: absolute;
         left: 500px;
