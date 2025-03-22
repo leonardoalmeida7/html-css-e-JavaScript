@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+:root {
+    /* Colors */
+    --White: #FFFFFF;
+    --Blue900: #13183F;
+    --Blue600: #666CA3;
+    --Blue400: #83869A;
+    --Pink600: #F74780;
+    --Pink300: #FFA7C3;
+
+    --Gradient_1: to top, #F02AA6, #FF6F48;
+    --Gradient_2: to bottom, #4851FF, #F02AA6;
+
+    /* Font */
+    --FontPrimary: "Plus Jakarta Sans", sans-serif;
+
+    --LineHeight_1: 120%;
+    --FontSize_1: 56px;
+    --FontSize_2: 40px;
+    --FontSize_3: 32px;
+    --FontSize_4: 24px;
+
+    --LineHeight_2: 150%;
+    --FontSize_5: 18px;
+    --FontSize_6: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--FontPrimary);
+    
+}
+
+body {
+    background-image: linear-gradient(to bottom, #ffffff 60%, #2828280f);
+    overflow-x: hidden;
+}
+
+header img {
+    width: 95px;
+}
+
+header button {
+    background-color: var(--Blue900);
+    color: var(--White);
+    padding: 14px 30px;
+    border-radius: 35px;
+    border: none;
+    font-size: var(--FontSize_5);
+    transition: all .3s linear;
+}
+
+header button:hover {
+    background-color: var(--Blue600);
+}
+
+/* Style main */
+
+main h1 {
+    font-size: var(--FontSize_2);
+    color: var(--Blue900);
+}
+
+main p {
+    color: var(--Blue400);
+    font-size: var(--FontSize_5);
+}
+
+main button {
+    background-image: linear-gradient(var(--Gradient_1));
+    border: none;
+    border-radius: 30px;
+    padding: 18px 33px;
+    color: var(--White);
+    transition: all .3s linear;
+}
+
+main button:hover {
+    background-image: none;
+    background-color: var(--Pink300);
+}
+
+.hero {
+    background: url(../imgs/image-hero-mobile@2x.png) no-repeat center;
+    background-size: cover;
+    height: 400px;
+}
+
+.check-out {
+    color: var(--White);
+    background-image: linear-gradient(var(--Gradient_1));
+    border-radius: 16px;
+    padding: 25px;
+    font-size: var(--FontSize_4);
+    line-height: var(--LineHeight_1);
+}
+
+.course {
+    background-color: var(--White);
+    box-shadow: 0px 20px 30px 7px #2828280f;
+    border-radius: 16px;
+    margin-top: 53px;
+    padding: 40px 30px;
+    position: relative;
+}
+
+.icon {
+    position: absolute;
+    top: -30px;
+}
+
+span {
+    font-weight: bolder;
+    font-size: var(--FontSize_5);
+    color: var(--Blue900);
+    margin: 20px 0px;
+}
+
+.course p{
+    font-size: var(--FontSize_6);
+    font-weight: bold;
+    margin: 20px 0px;
+}
+
+.course a {
+    text-decoration: none;
+    color: var(--Pink600);
+    font-weight: bold;
+    font-size: var(--FontSize_5);
+}
+
+.course a:hover {
+    color: var(--Pink300);
+}
+
+/* Style Footer */
+
+footer {
+    background-color: var(--Blue900);
+    margin-top: 80px;
+}
+
+footer img {
+    width: 94px;
+}
+
+footer button {
+    background-image: linear-gradient(var(--Gradient_2));
+    border: none;
+    border-radius: 30px;
+    padding: 13px 27px;
+    color: var(--White);
+    font-size: var(--FontSize_5);
+    transition: all .3s linear;
+}
+
+footer button:hover {
+    background-color: var(--Pink300);
+    background-image: none;
+}
+
+@media screen and (min-width: 768px){
+    body {
+        background-image: linear-gradient(to bottom, #ffffff 40%, #2828280f);
+    }
+    main {
+        margin-top: 100px;
+    }
+
+    .first-section {
+        margin-bottom: 136px;
+        position: relative;
+    }
+
+    .hero {
+        background: url(../imgs/image-hero-tablet@2x.png) no-repeat center;
+        background-size: cover;
+        height: 700px;
+        width: 600px;
+        position: absolute;
+        left: 389px;
+        top: -250px;
+    }
+
+    .presentation-text {
+        width: 345px;
+    }
+
+    span {
+        font-size: var(--FontSize_4);
+    }
+
+    .course {
+        height: 298px;
+    }
+
+    .course p {
+        font-size: var(--FontSize_5);
+        font-weight: normal;
+    }
+
+
+    .check-out {
+        padding: 60px 40px;
+        height: 349px;
+    }
+    
+}
+
+@media screen and (min-width: 992px) {
+    .hero {
+        left: 600px;
+    }
+
+    .course {
+        height: 268px;
+    }
+
+    .check-out {
+        height: 319px;
+        font-size: var(--FontSize_3);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .hero {
+        background: url(../imgs/image-hero-desktop@2x.png) no-repeat center;
+        background-size: cover;
+        width: 920px;
+        height: 780px;
+        left: 649px;
+        top: -336px;
+    }
+
+    .course {
+        height: 300px;
+        margin-top: 0;
+    }
+
+
+    main h1 {
+        font-size: var(--FontSize_1);
+    }
+
+    .check-out {
+        height: 300px;
+    }
+
+    .presentation-text {
+        width: 505px;
+    }
+
+    .courses {
+        margin-top: 250px;
+    }
+
+
+}
+
+
+@media screen and (min-width: 1400px) {
+    .hero {
+        width: 975px;
+        left: 797px;
+    }
+}
