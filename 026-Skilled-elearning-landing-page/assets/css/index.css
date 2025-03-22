@@ -50,6 +50,7 @@ header button {
     border: none;
     font-size: var(--FontSize_5);
     transition: all .3s linear;
+    z-index: 20;
 }
 
 header button:hover {
