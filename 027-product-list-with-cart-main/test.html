@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .test {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            background-color: green;
+        }
+        .test:active {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="test" id="0">
+        Red Velvet Cake
+    </div>
+    <div class="test" id="1">
+        Salted Caramel Brownie
+    </div>
+    <div class="res">
+        ...
+    </div>
+    <script>
+        const objItems = [
+            {
+                name: "Red Velvet Cake",
+                category: "Cake",
+                price: 4.50
+            },
+            {
+                name: "Salted Caramel Brownie",
+                category: "Brownie",
+                price: 4.50
+            }
+        ]
+
+        const elementTest = document.querySelectorAll('.test');
+        const resultado = document.querySelector(".res");
+        elementTest.forEach(element => {
+            element.addEventListener('click', () => {
+                let itemId = element.id
+                
+                localStorage.setItem('item' + itemId, JSON.stringify(objItems[itemId]));
+                const objItem = localStorage.getItem('item' + itemId);
+                const item = JSON.parse(objItem)
+                
+                resultado.innerHTML += item.name + '<hr />'
+            })
+        })
+    </script>
+</body>
+</html>

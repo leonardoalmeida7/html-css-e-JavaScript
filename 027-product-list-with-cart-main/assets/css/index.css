@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap');
+
+:root {
+    /* Colors */
+    --Red: #c73a0f;
+    --Green: #1ea475;
+    --White: #ffffff;
+    --Black: #000000;
+
+    --Rose50: #fcf9f7;
+    --Rose100: #f4edeb;
+    --Rose300: #c9aea6;
+    --Rose400: #ad8985;
+    --Rose500: #87635a;
+    --Rose900: #260f08;
+
+    /* Typography */
+    --fontPrimary: "Red Hat Text", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--fontPrimary);
+}
+
+.title h1  {
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+main .item {
+    position: relative;
+    line-height: .5rem;
+}
+
+main .img-item {
+    height: 200px;
+    border-radius: 17px;
+}
+
+main .name {
+    color: var(--Rose500);
+    font-size: .9rem;
+}
+
+main .name-item {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--Rose900);
+}
+
+main .price {
+    font-weight: 600;
+    color: var(--Red);
+}
+
+main button {
+    position: absolute;
+    padding: 12px 30px;
+    width: 170px;
+    background: var(--White);
+    border: 1px solid var(--Rose300);
+    left: 50%;
+    top: 190px;
+    transform: translateX(-50%);
+    transition: all .3s ease;
+    font-weight: 500;
+}
+
+.quantity-control {
+    position: absolute;
+    width: 170px;
+    height: 45px;
+    background: var(--Red);
+    border: none;
+    color: var(--White);
+    line-height: 45px;
+    left: 50%;
+    top: 190px;
+    transform: translateX(-50%);
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+}
+
+.quantity-control img{
+    border: 1px solid var(--White);
+    border-radius: 50%;
+    margin: 0px 15px;
+    width: 18px;
+    height: 18px;
+    padding: 3px;
+}
+
+.quantity-control .icons {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+main button:hover {
+    color: var(--Red);
+    border: 1px solid var(--Red);
+}
+
+main .cart h2{
+    color: var(--Red);
+    font-weight: 700;
+}
+
+
+@media screen and (min-width: 1200px) {
+    main {
+        position: relative;
+    }
+
+    
+    main .cart {
+        position: absolute;
+        right: 0;
+        top: 0;
+        max-width: 400px;
+        min-width: 300px;
+    }
+}
