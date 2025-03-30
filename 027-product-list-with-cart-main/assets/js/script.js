@@ -1,6 +1,5 @@
 const imgItems = document.querySelectorAll('.img-item');
 
-
 fetch("data.json")
     .then(response => response.json())
     .then(data => {
@@ -28,8 +27,8 @@ fetch("data.json")
                 });
             }
         }
+        changeBackground();
         window.addEventListener('resize', changeBackground);
-        window.addEventListener('load', changeBackground);
         })
     .catch(error => console.error("Erro ao carregar o JSON", error));
 
