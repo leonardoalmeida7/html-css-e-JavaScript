@@ -5,54 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .test {
-            width: 100px;
-            height: 100px;
-            margin: 10px;
-            background-color: green;
+        .hidden {
+            display: none;
         }
-        .test:active {
-            background-color: yellow;
+
+        .quantity-selector {
+
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quantity-selector button {
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
-    <div class="test" id="0">
-        Red Velvet Cake
-    </div>
-    <div class="test" id="1">
-        Salted Caramel Brownie
-    </div>
-    <div class="res">
-        ...
+    <div class="product">
+        <button class="add-to-cart">Add to Cart</button>
+        <div class="quantity-selector hidden">
+            <button class="decrease">-</button>
+            <span class="quantity">1</span>
+            <button class="increase">+</button>
+        </div>
     </div>
     <script>
-        const objItems = [
-            {
-                name: "Red Velvet Cake",
-                category: "Cake",
-                price: 4.50
-            },
-            {
-                name: "Salted Caramel Brownie",
-                category: "Brownie",
-                price: 4.50
-            }
-        ]
+        document.addEventListener("DOMContentLoaded", function () {
+            const addToCartButton = document.querySelector(".add-to-cart");
+            const quantitySelector = document.querySelector(".quantity-selector");
+            const quantityDisplay = document.querySelector(".quantity");
+            const increaseButton = document.querySelector(".increase");
+            const decreaseButton = document.querySelector(".decrease");
 
-        const elementTest = document.querySelectorAll('.test');
-        const resultado = document.querySelector(".res");
-        elementTest.forEach(element => {
-            element.addEventListener('click', () => {
-                let itemId = element.id
-                
-                localStorage.setItem('item' + itemId, JSON.stringify(objItems[itemId]));
-                const objItem = localStorage.getItem('item' + itemId);
-                const item = JSON.parse(objItem)
-                
-                resultado.innerHTML += item.name + '<hr />'
-            })
-        })
+            let quantity = 1;
+
+            addToCartButton.addEventListener("click", function () {
+                addToCartButton.classList.add("hidden");
+                quantitySelector.classList.remove("hidden");
+            });
+
+            increaseButton.addEventListener("click", function () {
+                quantity++;
+                quantityDisplay.textContent = quantity;
+            });
+
+            decreaseButton.addEventListener("click", function () {
+                if (quantity > 1) {
+                    quantity--;
+                } else {
+                    quantitySelector.classList.add("hidden");
+                    addToCartButton.classList.remove("hidden");
+                    quantity = 1;
+                }
+                quantityDisplay.textContent = quantity;
+            });
+        });
     </script>
 </body>
 </html>
