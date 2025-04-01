@@ -12,13 +12,13 @@
   <title>Frontend Mentor | Product list with cart</title>
 </head>
 <body>
-  <main class="container p-4 my-xl-5">
+  <main class="container p-4 my-xl-5 row-xl">
     <div class="title">
       <h1>
         Desserts
       </h1>
     </div>
-    <section class="row col-md-12 col-xl-9">
+    <section class="row col-md-12 col-xl-8">
       <div class="item col-12 col-md-6 col-lg-4">
         <div class="img-item mb-5 mt-3">
           <!-- image -->
@@ -43,7 +43,7 @@
           </div>
         </div>
         <p class="name">Waffle</p>
-        <p class=em-cart">Vanilla Panna CottaWaffle with Berries</p>
+        <p class="name-item">Waffle with Berries</p>
         
         <p class="price">$6.50</p>
       </div>
@@ -73,7 +73,7 @@
           </div>
         </div>
         <p class="name">Crème Brûlée</p>
-        <p class=em-cart">Vanilla Panna CottaVanilla Bean Crème Brûlée</p>
+        <p class="name-item">Vanilla Bean Crème Brûlée</p>
         
         <p class="price">$7.00</p>
       </div>
@@ -281,24 +281,14 @@
         <p class="price">$6.50</p>
       </div>
     </section>
-    <section class="cart my-5">
+    <section class="cart my-5 py-4 col-xl-4">
       <h2 class="ms-5 mb-4 ms-xl-0 ">Your Cart (<span class="quantity">0</span>)</h2>
       <div class="empty-card text-center">
         <img src="assets/images/illustration-empty-cart.svg" alt="img_empty_card">
         <p>Your added items will appear here</p>
       </div>
       <div class="itens-cart">
-        <div class="item-cart d-flex justify-content-between align-items-center">
-          <div>
-            <p class="name-item-cart">Vanilla Panna Cotta</p>
-            <span class="num-item-cart me-3">1x</span>
-            <span class="price-item-cart me-3">@6.50</span>
-            <span class="price-item-total">$6.50</span>
-          </div>
-          <div class="icon-remove">
-            <img src="assets/images/icon-remove-item.svg" alt="icon_remove">
-          </div>
-        </div>
+        
       </div>
     </section>
   </main>
