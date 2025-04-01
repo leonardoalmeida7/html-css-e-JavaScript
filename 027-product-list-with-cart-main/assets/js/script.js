@@ -4,6 +4,7 @@ const controlButtonsCart = document.querySelectorAll('.icons img');
 const numItems = document.querySelectorAll('.num-items');
 const buttonController = document.querySelectorAll('.quantity-control');
 const itemsCart = document.querySelector('.itens-cart');
+const countQuantityItems = document.querySelector('.quantity');
 
 
 
@@ -55,6 +56,8 @@ buttonsCart.forEach(button => {
     if(idButton < buttonsCart.length - 1) idButton++;
     button.addEventListener('click', () => {
         button.classList.add('hidden');
+        numItems[button.id].textContent = 1;
+        calculateItemsCart();
         addToCart(button.id);
     })
 });
@@ -78,7 +81,9 @@ function buttonToggle(){
                     buttonController[idDecrement].classList.add('hidden');
                     buttonsCart[idDecrement].classList.remove('hidden');
                     buttonController[idDecrement].classList.remove('hidden');
+                    numItems[idDecrement].textContent = 0;
                     removeItemCart(idDecrement);
+                    calculateItemsCart();
                 }
             }
         })
@@ -103,6 +108,7 @@ function addToCart(infoItem){
     
     divElement.setAttribute('class', 'item-cart d-flex justify-content-between align-items-center mx-5 mx-xl-2');
     divElementChild2.setAttribute('class', 'icon-remove');
+    divElementChild2.setAttribute('onclick', `removeItemCart(${infoItem})`);
     itemName.setAttribute('class', 'name-item-cart');
     spanElement.setAttribute('class', 'num-item-cart me-3');
     spanElement2.setAttribute('class', 'price-item-cart me-3');
@@ -127,29 +133,50 @@ function addToCart(infoItem){
 
 }
 
+
 function calculateItems(id){
     let listCart = [];
     let listItems = document.querySelectorAll('.item-cart');
     let listItemsQnd = document.querySelectorAll('.num-item-cart');
     let listItemsQndTotal = document.querySelectorAll('.price-item-total');
-    console.log()
+    
     for(let i = 0; i < listItems.length; i++){
         listCart.push(listItems[i].id);
     }
     let item = listCart.indexOf('' + id);
     listItemsQnd[item].textContent = numItems[id].textContent + 'x';
     listItemsQndTotal[item].textContent = '$' + (getItemsInfos(id)[2] * numItems[id].textContent).toFixed(2);
-    console.log(listCart);
+    
+    calculateItemsCart();
 }
 
+function calculateItemsCart(){
+    let totalItems = []
+    numItems.forEach(numItem => {
+        totalItems.push(numItem.textContent);
+    })
+    countQuantityItems.textContent = totalItems.reduce((v, t) => Number(v) + Number(t));
+    console.log(totalItems)
+}
+
+
+
 function removeItemCart(id){
-    let listCart = [];
+    //let listCart = [];
     let listItems = document.querySelectorAll('.item-cart');
-    console.log(listItems)
-    for(let i = 0; i < listItems.length; i++){
-        listCart.push(listItems[i].id);
-    }
-    let item = listCart.indexOf('' + id);
-    listItems[item].remove();
-    document.querySelectorAll('hr')[item].remove();
+    let listHr = document.querySelectorAll('hr');
+    numItems[id].textContent = 0;
+
+   listItems.forEach((item, index) => {
+        if (item.id == id) {
+            item.remove();
+            if(listHr[index]) listHr[index].remove();
+        }
+    })
+
+    calculateItemsCart();
+
+    buttonsCart[id].classList.remove('hidden');
+
+    numItems[id].textContent = 0;
 }
