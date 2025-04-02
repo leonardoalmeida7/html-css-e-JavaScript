@@ -70,7 +70,7 @@ function buttonToggle(){
         buttonCart.addEventListener('click', () => {
             let idIncrement = (buttonCart.id / 2) - 0.5;
             let idDecrement = (buttonCart.id / 2);
-            if(buttonCart.alt == 'icon_increment'){
+            if(buttonCart.alt == 'increment'){
                 numItems[idIncrement].textContent = Number(numItems[idIncrement].textContent) + 1;
                 calculateItems(idIncrement);
             }else {
@@ -156,16 +156,14 @@ function calculateItemsCart(){
         totalItems.push(numItem.textContent);
     })
     countQuantityItems.textContent = totalItems.reduce((v, t) => Number(v) + Number(t));
-    console.log(totalItems)
+
 }
 
 
 
 function removeItemCart(id){
-    //let listCart = [];
     let listItems = document.querySelectorAll('.item-cart');
     let listHr = document.querySelectorAll('hr');
-    numItems[id].textContent = 0;
 
    listItems.forEach((item, index) => {
         if (item.id == id) {
@@ -177,6 +175,5 @@ function removeItemCart(id){
     calculateItemsCart();
 
     buttonsCart[id].classList.remove('hidden');
-
     numItems[id].textContent = 0;
 }
