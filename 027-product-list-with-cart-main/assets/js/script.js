@@ -5,6 +5,7 @@ const numItems = document.querySelectorAll('.num-items');
 const buttonController = document.querySelectorAll('.quantity-control');
 const itemsCart = document.querySelector('.itens-cart');
 const countQuantityItems = document.querySelector('.quantity');
+const buttonConfirm = document.querySelector('.confirm');
 
 
 
@@ -93,12 +94,13 @@ function buttonToggle(){
 buttonToggle();
 
 function addToCart(infoItem){
+    buttonConfirm.classList.remove('hidden');
     let infos = getItemsInfos(infoItem);
     const emptyCard = document.querySelector('.empty-card');
     emptyCard.classList.add('hidden');
 
     const divElement = document.createElement('div');
-    const hrElement = document.createElement('hr');
+
     const divElementChild = document.createElement('div');
     const divElementChild2 = document.createElement('div');
     const itemName = document.createElement('p');
@@ -106,7 +108,7 @@ function addToCart(infoItem){
     const spanElement2 = document.createElement('span');
     const spanElement3 = document.createElement('span');
     
-    divElement.setAttribute('class', 'item-cart d-flex justify-content-between align-items-center mx-5 mx-xl-2');
+    divElement.setAttribute('class', 'item-cart d-flex justify-content-between align-items-center mx-5 mx-xl-2 py-3');
     divElementChild2.setAttribute('class', 'icon-remove');
     divElementChild2.setAttribute('onclick', `removeItemCart(${infoItem})`);
     itemName.setAttribute('class', 'name-item-cart');
@@ -123,7 +125,7 @@ function addToCart(infoItem){
     divElementChild2.textContent = 'x';
     
     itemsCart.appendChild(divElement);
-    itemsCart.appendChild(hrElement);
+
     divElement.appendChild(divElementChild);
     divElement.appendChild(divElementChild2);
     divElementChild.appendChild(itemName);
@@ -131,6 +133,8 @@ function addToCart(infoItem){
     divElementChild.appendChild(spanElement2);
     divElementChild.appendChild(spanElement3);
 
+    
+    calculateTotalPrice()
 }
 
 
@@ -146,7 +150,8 @@ function calculateItems(id){
     let item = listCart.indexOf('' + id);
     listItemsQnd[item].textContent = numItems[id].textContent + 'x';
     listItemsQndTotal[item].textContent = '$' + (getItemsInfos(id)[2] * numItems[id].textContent).toFixed(2);
-    
+
+    calculateTotalPrice();
     calculateItemsCart();
 }
 
@@ -156,24 +161,41 @@ function calculateItemsCart(){
         totalItems.push(numItem.textContent);
     })
     countQuantityItems.textContent = totalItems.reduce((v, t) => Number(v) + Number(t));
+    if(countQuantityItems.textContent == 0) buttonConfirm.classList.add('hidden');
 
+}
+
+function calculateTotalPrice(){
+    const orderTotal = document.querySelector('.price-total');
+    const priceItemTotal = document.querySelectorAll('.price-item-total');
+    let test = [];
+    priceItemTotal.forEach((price) => {
+        test.push(price.textContent.substring(1));
+        orderTotal.textContent = Number(test.reduce((v, t) => Number(v) + Number(t))).toFixed(2);
+        
+    })
+    
 }
 
 
 
 function removeItemCart(id){
     let listItems = document.querySelectorAll('.item-cart');
-    let listHr = document.querySelectorAll('hr');
+    
 
    listItems.forEach((item, index) => {
         if (item.id == id) {
             item.remove();
-            if(listHr[index]) listHr[index].remove();
+
         }
     })
 
-    calculateItemsCart();
-
+    
     buttonsCart[id].classList.remove('hidden');
     numItems[id].textContent = 0;
+    calculateItemsCart();
+}
+
+function openModal(){
+
 }

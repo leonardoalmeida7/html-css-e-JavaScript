@@ -130,6 +130,11 @@ main .cart h2{
     
 }
 
+.item-cart {
+    border-bottom: 1px solid var(--Rose100);
+    line-height: 15px;
+}
+
 .num-item-cart {
     color: var(--Red);
     font-weight: 600;
@@ -155,17 +160,34 @@ main .cart h2{
     width: 23px;
     height: 22px;
     text-align: center;
+    transition: all .3s ease;
     line-height: 14px;
     font-size: 1.2rem;
     font-weight: 500;
     padding-left: 1px;
 }
 
-hr {
-    width: 90%;
-    margin: auto;
-    color: var(--Rose500);
-    margin-top: 16px;
+.icon-remove:hover {
+    color: var(--Black);
+    border-color: var(--Black);
+}
+
+div.confirm > button {
+    background-color: var(--Red);
+    border: none;
+    color: var(--White);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all .3s linear;
+}
+
+div.confirm > button:hover {
+    background-color: #7c240a;
+}
+
+.price-total {
+    font-weight: 800;
+    font-size: 1.7rem;
 }
 
 @media screen and (min-width: 1200px) {
@@ -181,10 +203,5 @@ hr {
         max-width: 490px;
         min-width: 300px;
         padding: 0 20px;
-    }
-    hr {
-        width: 100%;
-        color: var(--Rose500);
-        margin-top: 16px;
     }
 }
