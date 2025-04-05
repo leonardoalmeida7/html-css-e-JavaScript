@@ -179,8 +179,6 @@ function calculateTotalPrice(){
     
 }
 
-
-
 function removeItemCart(id){
     let listItems = document.querySelectorAll('.item-cart');
     containerItems[id].style.border = 'none';
