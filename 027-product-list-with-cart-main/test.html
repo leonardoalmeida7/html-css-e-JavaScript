@@ -1,67 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .hidden {
-            display: none;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+  }
 
-        .quantity-selector {
+  .modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 300px;
+    border-radius: 8px;
+    text-align: center;
+  }
 
-            align-items: center;
-            gap: 10px;
-        }
-
-        .quantity-selector button {
-            width: 30px;
-            height: 30px;
-            font-size: 18px;
-        }
-    </style>
+  .close {
+    float: right;
+    cursor: pointer;
+  }
+  </style>
 </head>
 <body>
-    <div class="product">
-        <button class="add-to-cart">Add to Cart</button>
-        <div class="quantity-selector hidden">
-            <button class="decrease">-</button>
-            <span class="quantity">1</span>
-            <button class="increase">+</button>
-        </div>
-    </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const addToCartButton = document.querySelector(".add-to-cart");
-            const quantitySelector = document.querySelector(".quantity-selector");
-            const quantityDisplay = document.querySelector(".quantity");
-            const increaseButton = document.querySelector(".increase");
-            const decreaseButton = document.querySelector(".decrease");
+  <!-- Botão de confirmação -->
+<button id="confirmBtn">Confirm Order</button>
 
-            let quantity = 1;
+<!-- Modal escondido inicialmente -->
+<div id="orderModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Order Confirmed</h2>
+    <p>We hope you enjoy your food!</p>
+    <ul id="orderList"></ul>
+    <p>Total: $<span id="orderTotal">0.00</span></p>
+    <button id="newOrderBtn">Start New Order</button>
+</div>
+</div>
+<script>
+  const modal = document.getElementById("orderModal");
+const confirmBtn = document.getElementById("confirmBtn");
+const closeBtn = document.querySelector(".close");
+const orderList = document.getElementById("orderList");
+const orderTotal = document.getElementById("orderTotal");
+const newOrderBtn = document.getElementById("newOrderBtn");
 
-            addToCartButton.addEventListener("click", function () {
-                addToCartButton.classList.add("hidden");
-                quantitySelector.classList.remove("hidden");
-            });
+// Simulando os dados do carrinho
+const cartItems = [
+  { name: "Vanilla Panna Cotta", quantity: 2, price: 6.5 },
+  { name: "Vanilla Bean Crème Brûlée", quantity: 4, price: 7 },
+  { name: "Classic Tiramisu", quantity: 1, price: 5.5 }
+];
 
-            increaseButton.addEventListener("click", function () {
-                quantity++;
-                quantityDisplay.textContent = quantity;
-            });
+confirmBtn.addEventListener("click", () => {
+  orderList.innerHTML = "";
+  let total = 0;
+  cartItems.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = `(${item.quantity}x)` - `$${(item.price * item.quantity).toFixed(2)}`;
+    orderList.appendChild(li);
+    total += item.price * item.quantity;
+  });
+  orderTotal.textContent = total.toFixed(2);
+  modal.style.display = "block";
+});
 
-            decreaseButton.addEventListener("click", function () {
-                if (quantity > 1) {
-                    quantity--;
-                } else {
-                    quantitySelector.classList.add("hidden");
-                    addToCartButton.classList.remove("hidden");
-                    quantity = 1;
-                }
-                quantityDisplay.textContent = quantity;
-            });
-        });
-    </script>
+closeBtn.onclick = () => {
+  modal.style.display = "none";
+};
+
+newOrderBtn.onclick = () => {
+  modal.style.display = "none";
+  // Aqui você pode limpar o carrinho se quiser
+};
+
+window.onclick = (event) => {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+};
+</script>
 </body>
 </html>

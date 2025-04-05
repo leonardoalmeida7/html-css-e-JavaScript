@@ -40,7 +40,7 @@ main .item {
 
 main .img-item {
     height: 200px;
-    border-radius: 17px;
+    border-radius: 13px;
 }
 
 main .name {
@@ -172,7 +172,7 @@ main .cart h2{
     border-color: var(--Black);
 }
 
-div.confirm > button {
+button.order {
     background-color: var(--Red);
     border: none;
     color: var(--White);
@@ -181,13 +181,66 @@ div.confirm > button {
     transition: all .3s linear;
 }
 
-div.confirm > button:hover {
+button.order:hover {
     background-color: #7c240a;
 }
 
 .price-total {
     font-weight: 800;
     font-size: 1.7rem;
+}
+
+/* Modal */
+
+.cart-modal {
+    position: fixed;
+    background-color: #0000005e;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.text-modal p {
+    color: var(--Rose500);
+}
+
+.text-modal h1 {
+    font-size: 2.4rem;
+}
+
+.cart-modal > div {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, -100%);
+    background-color: var(--White);
+    border-radius: 20px 20px 0px 0px;
+    width: 100%;
+}
+
+.container-image-thumbnail img{
+    width: 62px;
+    border-radius: 7px;
+}
+
+.item-cart-modal {
+    border-bottom: 1px solid var(--Rose100);
+    line-height: 15px;
+    margin-bottom: 20px;
+}
+
+.price-item-cart {
+    color: var(--Rose500);
+}
+
+@media screen and (min-width: 768px) {
+    .cart-modal > div {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 50%;
+        border-radius: 20px;
+    }
 }
 
 @media screen and (min-width: 1200px) {
@@ -204,4 +257,9 @@ div.confirm > button:hover {
         min-width: 300px;
         padding: 0 20px;
     }
+
+    .cart-modal > div {
+        width: 35%;
+    }
+
 }
