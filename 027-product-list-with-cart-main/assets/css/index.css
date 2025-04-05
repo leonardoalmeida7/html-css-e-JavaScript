@@ -238,7 +238,8 @@ button.order:hover {
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        width: 50%;
+        width: 90%;
+        max-width: 700px;
         border-radius: 20px;
     }
 }
@@ -259,7 +260,7 @@ button.order:hover {
     }
 
     .cart-modal > div {
-        width: 35%;
+        width: 600px;
     }
 
 }
