@@ -1,0 +1,155 @@
+:root {
+   /* Primary */
+
+--Purple50: hsl(260, 100%, 95%);
+--Purple300: hsl(264, 82%, 80%);
+--Purple500: hsl(263, 55%, 52%);
+
+/* Neutral */
+
+--White: hsl(0, 0%, 100%);
+--Grey100: hsl(214, 17%, 92%);
+--Grey200: hsl(0, 0%, 81%);
+--Grey400: hsl(224, 10%, 45%);
+--Grey500: hsl(217, 19%, 35%);
+--DarkBlue: hsl(219, 29%, 14%);
+--Black: hsl(0, 0%, 7%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Red Hat Text", sans-serif;
+    
+}
+
+body, 
+html {
+    height: 100dvh;
+}
+
+main {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 40px;
+    margin: auto;
+    width: 85%;
+}
+
+.containers {
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 60px 50px 80px var(--Grey200);
+}
+
+#container_1 {
+    background-color: var(--Purple500);
+}
+
+#container_2 {
+    background-color: var(--Grey500);
+}
+
+#container_3 {
+    background-color: var(--White);
+}
+
+#container_4 {
+    background-color: var(--DarkBlue);
+}
+
+#container_5 {
+    background-color: var(--White);
+}
+
+#container_1,
+#container_2,
+#container_4 {
+    color: var(--White);
+}
+
+#container_3,
+#container_5 {
+    color: var(--Grey500);
+}
+
+.profile {
+    display: flex;
+}
+
+.profile div {
+    margin-right: 20px;
+    font-size: .85rem;
+}
+
+.profile .name {
+    font-weight: 500;
+}
+
+.feedback h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 14px 0;
+}
+
+.img-profile {
+    border-radius: 50%;
+    border: 3px solid #ffffff73;
+    width: 35px;
+}
+
+
+
+
+@media screen and (min-width: 800px) {
+    main {
+        grid-template-columns: 50% 50%;
+        padding: 40px 0;
+    }
+
+    #container_1,
+    #container_4,
+    #container_5 {
+        grid-column: 1 / span 2;
+    }
+}
+
+
+@media screen and (min-width: 1230px){
+    main {
+        grid-template-columns: 24% 24% 24% 24%;
+        grid-template-rows: 330px 330px;
+        gap: 30px;
+        width: 95%;
+        max-width: 1230px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-sizing: border-box;
+    }
+
+    #container_2 {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    #container_4 {
+        grid-column-start: 2;
+    }
+
+    #container_5 {
+        grid-column: 4;
+        grid-row: 1 / span 2;
+    }
+
+    .feedback h1 {
+        font-size: 1.3rem;
+        margin: 10px;
+    }
+    
+    .feedback p {
+        font-size: .9rem;
+    }
+
+}
