@@ -1,0 +1,261 @@
+:root {
+    --Cyan600: #4D96A9;
+    --Cyan300: #8fE3F9;
+
+    --Purple600: #855FB1;
+    --Purple300: #D9B8FF;
+
+    --Slate900: #28283D;
+    --Slate600: #87879D;
+    --Slate300: #D1D1DF;
+
+    --White: #FAFAFA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Red Hat Text", sans-serif;
+    color: var(--Slate900);
+}
+
+body,
+html {
+    overflow-x: hidden;
+}
+
+header .logo {
+    text-align: center;
+    padding: 38px;
+}
+
+header .img-hero {
+    background: url(assets/img/tablet/image-hero.png) no-repeat center center;
+    background-size: 433px;
+    height: 160px;
+}
+
+header .hero-content p {
+    font-size: 18px;
+    line-height: 110%;
+    color: var(--Slate600);
+}
+
+header h1 {
+    font-size: 44px;
+    line-height: 110%;
+}
+
+.btn-download {
+    width: 196px;
+    height: 56px;
+    border: none;
+    border-radius: 29px;
+    color: var(--White);
+    transition: all .3s ease;
+    font-weight: 600;
+}
+
+header .btn-download {
+    background-color: var(--Cyan600);
+}
+
+header .btn-download:hover {
+    opacity: .6;
+}
+
+.btn-what {
+    width: 161px;
+    height: 56px;
+    border-radius: 29px;
+    border: none;
+    background-color: var(--Purple600);
+    color: var(--White);
+    transition: all .3s ease;
+    font-weight: 600;
+}
+
+.btn-what:hover {
+    opacity: .6;
+}
+
+header .btn-download .version {
+    color: var(--Cyan300);
+}
+
+.design-num {
+    position: relative;
+    height: 136px;
+    margin-top: 100px;
+}
+
+.design-num .circle {
+    background-color: var(--White);
+    border: 1px solid var(--Slate300);
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    font-weight: 700;
+    color: var(--Slate600);
+}
+
+.design-num .circle::before {
+    content: "";
+    width: 1px;
+    height: 80px;
+    background-color: var(--Slate300);
+    position: absolute;
+    left: 50%;
+    top: -28%;
+}
+
+main {
+    position: relative;
+}
+
+main img {
+    border-radius: 6%;
+}
+
+.text-main .text-modern {
+    color: var(--Cyan600);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+.text-main h1 {
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 110%;
+    margin: 28px 0;
+}
+
+.text-main p {
+    font-size: 18px;
+    line-height: 110%;
+    color: var(--Slate600);
+}
+
+#num-2 {
+    position: absolute;
+    left: 50%;
+    translate: -50%; 
+}
+
+footer {
+    background: url(assets/img/mobile/image-footer.jpg) no-repeat center center;
+    background-size: cover;
+    margin-top: 180px;
+}
+
+footer div {
+    background-color: #4d97a9e0;
+    box-sizing: content-box;
+    height: 374px;
+
+}
+
+
+footer h1 {
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--White);
+    line-height: 110%;
+}
+
+footer p {
+    color: var(--White);
+    font-size: 18px;
+    line-height: 110%;
+    
+}
+
+footer .btn-download {
+    background-color: var(--Purple600);
+
+}
+
+footer .btn-download:hover {
+    opacity: .6;
+}
+
+footer .btn-download .version{
+    color: var(--Purple300);
+}
+
+@media screen and (min-width: 768px) {
+    header .img-hero {
+        background: url(assets/img/tablet/image-hero.png) no-repeat center center;
+        background-size: 820px;
+        height: 303px;
+    }
+
+    header h1 {
+        font-size: 54px;
+    }
+
+    header .hero-content {
+        padding: 0px 130px;
+        
+    }
+
+    .design-num {
+        margin-top: 135px;
+    }
+    
+    main img {
+        border-radius: 10%;
+    }
+
+    .text-main {
+        width: 75%;
+        margin: auto;
+    }
+
+    .text-main h1 {
+        font-size: 44px;
+    }
+
+    #num-2 {
+        bottom: -250px;
+    }
+
+    footer {
+        background-image: url(assets/img/tablet/image-footer.jpg);
+    }
+
+    footer div {
+        padding: 150px;
+        height: 320px;
+    }
+
+    footer h1 {
+        font-size: 44px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    header .img-hero {
+        background: url(assets/img/desktop/image-hero-left.png) no-repeat center center;
+        background-size: contain;
+    }
+
+    header h1 {
+        font-size: 60px;
+    }
+
+    header .img-hero-right {
+        background: url(assets/img/desktop/image-hero-right.png) no-repeat center center;
+        background-size: contain;
+    }
+
+    .text-main {
+        width: 500px;
+    }
+
+    footer {
+        background-image: url(assets/img/desktop/image-footer.jpg);
+    }
+    
+}
