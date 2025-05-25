@@ -83,10 +83,6 @@ body {
 
 /* header */
 
-header {
-    margin: 90px 0px 20px;
-}
-
 .title {
     max-width: 650px;
 }
@@ -219,6 +215,7 @@ header {
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.068);
     transition: all .3s ease;
     cursor: pointer;
+    position: relative;
 }
 
 .container-alternative:hover {
