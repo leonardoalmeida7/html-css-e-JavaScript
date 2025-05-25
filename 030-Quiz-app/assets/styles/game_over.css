@@ -71,24 +71,63 @@
     padding: 0;
 }
 
+
 body {
     min-height: 100dvh;
     background-color: var(--Grey50);
     background-repeat: no-repeat;
     background-size: contain;
     color: var(--Blue950);
-
+    
 }
 
-
-/* header */
-header {
-    margin: 90px 0px 20px;
+main {
+    margin-bottom: 30px;
 }
 
-.title {
-    max-width: 650px;
+.subject-actual {
+    font-weight: 600;
+    font-size: 22px;
 }
+
+.title h1 {
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 100%;
+}
+
+.title-personality {
+    font-weight: 500;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--Purple600);
+    color: #fff;
+    font-weight: 500;
+    font-size: 22px;
+    transition: all .3s ease;
+}
+
+#icon-html {
+    background-color: var(--Orange50);
+}
+
+#icon-css {
+    background-color: var(--Green100);
+}
+
+#icon-javascript {
+    background-color: var(--Blue100);
+}
+
+#icon-accessibility {
+    background-color: var(--Purple100);
+}
+
 
 .btn-theme {
     position: relative;
@@ -111,70 +150,24 @@ header {
     transition: all .3s ease;
 }
 
-.container-theme {
-    margin-top: 30px;
-}
-
 .container-theme i {
     color: var(--Black);
 }
 
-#control-btn-theme {
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-
-.title h1 {
-    font-weight: 300;
-    font-size: 40px;
-    line-height: 100%;
-}
-
-.title-personality {
-    font-weight: 500;
-}
-
-#text-start {
-    font-weight: 300;
-}
-
-/* main */ 
-
-.subject {
+.container-score {
     background-color: var(--White);
-    padding: 13px;
-    margin: 18px 0px;
-    font-weight: 500;
-    font-size: 18px;
     border-radius: 12px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.068);
-    transition: all .3s ease;
-    cursor: pointer;
-    text-decoration: none;
-    color: var(--Blue950);
+    margin: 18px 0px;
+    padding: 16px;
+    font-weight: 600;
+    font-size: 22px;
 }
 
-.subject:hover {
-    background-color: var(--Grey50);
+.score {
+    font-size: 7.5rem;
+    font-weight: 500;
 }
-
-#icon-html {
-    background-color: var(--Orange50);
-}
-
-#icon-css {
-    background-color: var(--Green100);
-}
-
-#icon-javascript {
-    background-color: var(--Blue100);
-}
-
-#icon-accessibility {
-    background-color: var(--Purple100);
-}
-
 
 
 @media screen and (min-width: 768px) {
@@ -182,24 +175,11 @@ header {
         background-size: 42%;
     }
 
-
     .title h1 {
         font-weight: 300;
         font-size: 64px;
     }
 
-    #text-start {
-        font-weight: 300;
-        font-size: 20px;
-    }
-
-    .question {
-        font-size: 32px;
-    }
-
-    .subject {
-        border-radius: 20px;
-    }
 }   
 
 @media screen and (min-width: 1200px) {
@@ -207,22 +187,7 @@ header {
         background-size: cover;
     }
 
-    .subject {
-        padding: 20px;
-    }
-
-    header,
     main {
-        margin-top: 180px;
-    }
-    #header-index {
-        margin-top: 180px;
-    }
-
-    .content-theme {
-        margin-bottom: 80px;
+        margin-top: 130px;
     }
 }
-
-
-

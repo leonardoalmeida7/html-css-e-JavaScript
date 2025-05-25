@@ -71,32 +71,27 @@
     padding: 0;
 }
 
+
 body {
     min-height: 100dvh;
     background-color: var(--Grey50);
     background-repeat: no-repeat;
     background-size: contain;
     color: var(--Blue950);
-
 }
 
-
-/* header */
 header {
-    margin: 90px 0px 20px;
+    margin-top: 30px;
 }
 
-.title {
-    max-width: 650px;
-}
 
 .btn-theme {
     position: relative;
     background-color: var(--Purple600);
     width: 40px;
+    height: 26px;
     cursor: pointer;
 }
-
 
 .btn-theme .circle {
     position: absolute;
@@ -111,52 +106,57 @@ header {
     transition: all .3s ease;
 }
 
-.container-theme {
-    margin-top: 30px;
+main {
+    margin-bottom: 30px;
 }
 
-.container-theme i {
-    color: var(--Black);
+.subject-actual {
+    font-weight: 600;
+    font-size: 22px;
 }
 
-#control-btn-theme {
-    position: absolute;
-    right: 0;
-    top: 0;
+.question {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 120%;
 }
 
-.title h1 {
-    font-weight: 300;
-    font-size: 40px;
-    line-height: 100%;
-}
-
-.title-personality {
-    font-weight: 500;
-}
-
-#text-start {
-    font-weight: 300;
-}
-
-/* main */ 
-
-.subject {
+.progress {
     background-color: var(--White);
-    padding: 13px;
+    padding: 3px;
+    margin: 20px 0;
+}
+
+.progress .bar {
+    background-color: var(--Purple600);
+    transition: all 1s linear;
+    height: 100%;
+}
+
+.container-alternative {
+    background-color: var(--White);
     margin: 18px 0px;
-    font-weight: 500;
-    font-size: 18px;
+    padding: 13px;
     border-radius: 12px;
+    font-weight: 600;
+    font-size: 18px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.068);
     transition: all .3s ease;
     cursor: pointer;
-    text-decoration: none;
-    color: var(--Blue950);
+    position: relative;
 }
 
-.subject:hover {
+.container-alternative:hover {
     background-color: var(--Grey50);
+}
+
+.container-alternative .letter {
+    width: 50px;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 5px;
+    background-color: var(--Grey50);
+    margin-right: 20px;
 }
 
 #icon-html {
@@ -175,30 +175,58 @@ header {
     background-color: var(--Purple100);
 }
 
+.btn-submit {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--Purple600);
+    color: #fff;
+    font-weight: 500;
+    font-size: 22px;
+    transition: all .3s ease;
+}
 
+.btn-submit:hover {
+    opacity: .7;
+}
+
+.icons-alternative {
+    position: absolute;
+    left: 90%;
+}
+
+#correct-alternative {
+    background-color: var(--Green500);
+    color: var(--White);
+}
+
+#error-alternative {
+    background-color: var(--Red500);
+    color: var(--White);
+}
+
+.text-error {
+    color: var(--Red500);
+    font-size: 1.3rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
 
 @media screen and (min-width: 768px) {
     body {
         background-size: 42%;
-    }
-
-
-    .title h1 {
-        font-weight: 300;
-        font-size: 64px;
-    }
-
-    #text-start {
-        font-weight: 300;
-        font-size: 20px;
+        overflow-y: hidden;
     }
 
     .question {
         font-size: 32px;
-    }
-
-    .subject {
-        border-radius: 20px;
     }
 }   
 
@@ -207,22 +235,13 @@ header {
         background-size: cover;
     }
 
-    .subject {
-        padding: 20px;
+    .progress {
+        background-color: var(--White);
+        padding: 3px;
+        margin-top: 134px;
     }
 
-    header,
     main {
-        margin-top: 180px;
-    }
-    #header-index {
-        margin-top: 180px;
-    }
-
-    .content-theme {
-        margin-bottom: 80px;
+        margin-top: 130px;
     }
 }
-
-
-

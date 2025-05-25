@@ -8,6 +8,8 @@ const elementContainerAlternative = document.querySelectorAll(".container-altern
 const elementLetterAlternative = document.querySelectorAll(".letter");
 const elementProgressBar = document.querySelector(".bar");
 const textError = document.querySelector(".text-error");
+const btnControlMode = document.querySelector("#control-btn-theme");
+const btnControlModeCircle = document.querySelector(".circle");
 
 const btnSubmit = document.querySelector(".btn-submit");
 
@@ -21,6 +23,35 @@ iconSuccess.classList = "icons-alternative";
 const iconError = document.createElement('img');
 iconError.setAttribute('src', '../images/icon-error.svg');
 iconError.classList = "icons-alternative";
+
+
+let theme = 'light';
+
+
+btnControlMode.addEventListener("click", () => {
+    theme = theme === "light" ? 'dark' : "light";
+    btnControlModeCircle.style.left = btnControlModeCircle.style.left === "40%" ? "0%" : "40%";
+    document.documentElement.setAttribute('mode-light-dark', theme);
+    changeWindow();
+    console.log(theme)
+})
+
+const actualPage = window.location.pathname;
+const backgroundUrl = '../images/pattern-background';
+
+const changeWindow = () => {
+    const windowWidth = window.innerWidth;
+    if(windowWidth <= 768){
+        document.body.style.backgroundImage = `url(${backgroundUrl}-mobile-${theme}.svg)`;
+    }else if(windowWidth <= 1200) {
+        document.body.style.backgroundImage = `url(${backgroundUrl}-tablet-${theme}.svg)`;
+    }else {
+        document.body.style.backgroundImage = `url(${backgroundUrl}-desktop-${theme}.svg)`;
+    }
+}
+window.addEventListener('resize', changeWindow);
+changeWindow();
+
 
 let numQuestion = 0;
 let markedAlternative = false;
