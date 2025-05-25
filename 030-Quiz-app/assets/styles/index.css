@@ -72,20 +72,19 @@
 }
 
 body {
-    overflow-y: hidden;
     min-height: 100dvh;
     background-color: var(--Grey50);
     background-repeat: no-repeat;
     background-size: contain;
     color: var(--Blue950);
-    position: relative;
+
 }
 
 
 /* header */
 
 header {
-    margin: 100px 0px;
+    margin: 90px 0px 20px;
 }
 
 .title {
@@ -113,6 +112,8 @@ header {
     transition: all .3s ease;
 }
 
+
+
 #div-top {
     margin-top: 30px;
 }
@@ -138,7 +139,7 @@ header {
 
 .title h1 {
     font-weight: 300;
-    font-size: 48px;
+    font-size: 40px;
     line-height: 100%;
 }
 
@@ -154,10 +155,10 @@ header {
 
 .subject {
     background-color: var(--White);
-    padding: 16px;
+    padding: 13px;
     margin: 18px 0px;
     font-weight: 500;
-    font-size: 22px;
+    font-size: 18px;
     border-radius: 12px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.068);
     transition: all .3s ease;
@@ -211,10 +212,10 @@ header {
 .container-alternative {
     background-color: var(--White);
     margin: 18px 0px;
-    padding: 16px;
+    padding: 13px;
     border-radius: 12px;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 18px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.068);
     transition: all .3s ease;
     cursor: pointer;
@@ -298,6 +299,7 @@ header {
     body {
         background-size: 42%;
     }
+
 
     .title h1 {
         font-weight: 300;
