@@ -13,7 +13,6 @@ btnControlMode.addEventListener("click", () => {
 
 const backgroundUrl = './assets/images/pattern-background';
 
-console.log(actualPage)
 
 const changeWindow = () => {
     const windowWidth = window.innerWidth;
