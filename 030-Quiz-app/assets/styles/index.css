@@ -77,7 +77,7 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     color: var(--Blue950);
-
+    overflow-y: hidden;
 }
 
 
