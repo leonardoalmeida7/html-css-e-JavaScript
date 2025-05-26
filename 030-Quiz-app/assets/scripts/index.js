@@ -11,8 +11,9 @@ btnControlMode.addEventListener("click", () => {
     changeWindow();
 })
 
-const actualPage = window.location.pathname;
-const backgroundUrl = actualPage == '/index.html' ? './assets/images/pattern-background' : '../images/pattern-background';
+const backgroundUrl = './assets/images/pattern-background';
+
+console.log(actualPage)
 
 const changeWindow = () => {
     const windowWidth = window.innerWidth;
