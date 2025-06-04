@@ -22,6 +22,31 @@
   --DarkGradient: #04091B 0%, #091540 100%;
 }
 
+@media (prefers-color-theme: light){
+    :root {
+        --Grey50: #F4F6FA;
+    }
+
+    html {
+        color-scheme: dark;
+    }
+}
+
+[mode-light-dark="dark"]{
+    color-scheme: dark;
+    --LightGradient: #04091B 0%, #091540 100%;
+    --Neutral900: #FBFDFE;
+    --Neutral0: #202535;
+    --Neutral100: #2F364B;
+    --Neutral300: #535868;
+    --Neutral200: "";
+}
+
+[mode-light-dark="light"]{
+    color-scheme: light;
+       
+}
+
 body {
   min-height: 100dvh;
   background: linear-gradient(180deg, var(--LightGradient));
@@ -31,6 +56,7 @@ body {
 .menu h1 {
   font-size: 2rem;
   font-weight: 700;
+  color: var(--Neutral900);
 }
 
 .container-logo {
@@ -42,6 +68,7 @@ body {
   background-color: var(--Neutral100);
   padding: 12px;
   border-radius: 16px;
+  cursor: pointer;
 }
 
 button {
@@ -53,7 +80,7 @@ button {
 }
 
 .btn-control {
-  box-shadow: 5px 5px 10px var(--Neutral100);
+  box-shadow: 5px 5px 10px var(--Neutral200);
   font-size: 1.2rem;
 }
 
@@ -70,6 +97,8 @@ button {
   background-color: var(--Neutral0);
   border-radius: 16px;
   box-shadow: 0px 3px 8px var(--Neutral200);
+  border: 1px solid var(--Neutral300);
+  color: var(--Neutral900);
 }
 
 .name-item {
@@ -78,23 +107,32 @@ button {
 }
 
 .btn-active {
+  background-color: var(--Red700);
+
+}
+
+.btn-inactive {
+  background-color: var(--Neutral300);
+}
+
+.btn-action {
   width: 42px;
   height: 16px;
   border-radius: 20px;
-  background-color: var(--Red700);
   padding: 12px;
   position: relative;
+  cursor: pointer;
 }
 
 .circle {
-  background-color: var(--Neutral0);
+  background-color: white;
   width: 17px;
   height: 17px;
   border-radius: 50%;
   position: absolute;
-  left: 90%;
+
   top: 50%;
-  transform: translate(-90%, -50%);
+  transform: translate(0%, -50%);
 }
 
 .logo {
@@ -103,6 +141,14 @@ button {
   height: 40px;
 }
 
+#btn-active {
+  background-color: var(--Red700);
+  color: var(--Neutral0);
+}
+
+svg {
+  color: var(--Neutral900);
+}
 
 @media screen and (min-width: 992px) {
   .item  {

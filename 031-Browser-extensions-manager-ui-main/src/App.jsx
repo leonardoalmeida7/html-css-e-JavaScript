@@ -1,61 +1,83 @@
-import Item from './assets/components/Item';
-
 import { useState, useEffect } from 'react';
-
-//import logo from './assets/images/logo.svg';
-//import moon from './assets/images/icon-moon.svg';
-//import imgItem from './assets/images/logo-devlens.svg';
-
+import Item from './assets/components/Item';
+import Logo from './assets/components/Logo';
+import NavBtn from './assets/components/NavBtn';
 import './App.css';
 
 function App() {
   const [itens, setItens] = useState([]);
-  const [image, setImage] = useState(null);
+  const [logo, setLogo] = useState("./assets/images/icon-moon.svg");
+  const [theme, setTheme] = useState("light");
+  const [navBtns, setNavBtns] = useState([
+    { btnName: "All", isActive: true },
+    { btnName: "Active", isActive: false },
+    { btnName: "Inactive", isActive: false }
+  ]);
 
   useEffect(() => {
     const getInfo = async () => {
-      try{
-          const fetchApi = await fetch("/data.json");
-          const json = await fetchApi.json();
-          setItens(json);
-      }catch(erro) {;
+      try {
+        const fetchApi = await fetch("/data.json");
+        const json = await fetchApi.json();
+        setItens(json);
+      } catch (erro) {
         console.error("Ocorreu um erro " + erro);
       }
-    }
+    };
+    getInfo();
+  }, []);
 
-    getInfo()
-  },[]);
+  useEffect(() => {
+    localStorage.setItem('data', JSON.stringify(itens));
+  }, [itens]);
 
-  const logo = itens.map((item) => item.logo);
+  const handleClick = () => {
+    const isLight = theme === "light";
+    setLogo(isLight ? "./assets/images/icon-sun.svg" : "./assets/images/icon-moon.svg");
+    setTheme(isLight ? "dark" : "light");
+    document.documentElement.setAttribute('mode-light-dark', isLight ? "dark" : "light");
+  };
+
+  const handleNavClick = (btnName) => {
+    setNavBtns(prev =>
+      prev.map(btn => ({ ...btn, isActive: btn.btnName === btnName }))
+    );
+  };
+
+  const activeItens = itens.filter(item => item.isActive);
+  const inactiveItens = itens.filter(item => !item.isActive);
 
   return (
     <div className='main container'>
       <div className='container-logo d-flex justify-content-between align-items-center p-2 px-3 mt-3'>
-        <img src="./assets/images/logo.svg" alt="Logo" />
-        <div className='icon-theme'>
-          <img src="./assets/images/icon-moon.svg" alt="icon_moon" />
+        <Logo />
+        <div className='icon-theme' onClick={handleClick}>
+          <img src={logo} alt="icon_theme" />
         </div>
       </div>
+
       <div className='menu d-flex flex-column flex-lg-row align-items-center justify-content-lg-between my-5 my-lg-4'>
         <h1 className='mb-4 mb-lg-0'>Extensions List</h1>
         <div className="btns">
-          <button type="button" className='btn-control rounded-pill'>All</button>
-          <button type='button' className='btn-control mx-3 rounded-pill'>Active</button>
-          <button type='button' className='btn-control rounded-pill'>Inactive</button>
+          {navBtns.map((btn, index) => (
+            <NavBtn key={index} {...btn} handleNavClick={handleNavClick} />
+          ))}
         </div>
       </div>
+
       <div className="container-itens row gap-3 justify-content-between">
-        {itens.map((item, index) => (
-          <Item key={index} item={item} logo={logo}/>
+        {navBtns[0].isActive && itens.map((item, index) => (
+          <Item key={index} item={item} id={index} setActive={() => {}} setItens={setItens} itens={itens} />
+        ))}
+        {navBtns[1].isActive && activeItens.map((item, index) => (
+          <Item key={index} item={item} id={index} setActive={() => {}} setItens={setItens} itens={itens} />
+        ))}
+        {navBtns[2].isActive && inactiveItens.map((item, index) => (
+          <Item key={index} item={item} id={index} setActive={() => {}} setItens={setItens} itens={itens} />
         ))}
       </div>
-
-      {/* <div class="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-        Coded by <a href="#">Your Name Here</a>.
-      </div> */}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
