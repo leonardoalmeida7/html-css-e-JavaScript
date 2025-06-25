@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "Inter";
+  src: url(../public/fonts/static/Inter-Regular.ttf);
+}
+:root {
+  --White: #ffffff;
+  --Black: #000000;
+  --Grey: #5e6e85;
+  --Grey300: #acc1de;
+  --Blue900: #253347;
+  --Blue500: #345ff6;
+  --Blue300: #b3d3f1;
+  --Blue100: #e1e7fe;
+  --Gradient: to right, white, #d6fcfe , #d6e6fe;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  font-family: "Inter", sans-serif;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+p{
+  font-size: 1.1rem;
+  color: var(--Grey);
+}
